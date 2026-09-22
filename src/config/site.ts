@@ -3,7 +3,6 @@ export interface BirdSpecies {
   name: string;
   scientificName: string;
   family: string;
-  description: string;
   tag?: string;
 }
 
@@ -32,7 +31,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Cachaña",
     scientificName: "Enicognathus ferrugineus",
     family: "Psittacidae (Loros)",
-    description: "El loro más austral del mundo. Ave gregaria, bulliciosa y curiosa que le da nombre a nuestro primer juego.",
     tag: "Ave Protagonista"
   },
   {
@@ -40,7 +38,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Chucao",
     scientificName: "Scelorchilus rubecula",
     family: "Rhinocryptidae",
-    description: "Habitante emblemático del sotobosque del bosque valdiviano, famoso por su alegre canto y leyenda campesina.",
     tag: "Bosque Valdiviano"
   },
   {
@@ -48,7 +45,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Martín Pescador",
     scientificName: "Megaceryle torquata",
     family: "Alcedinidae",
-    description: "Rápido zambullidor y audaz cazador de peces en ríos y lagos del sur de Chile.",
     tag: "Ríos y Lagos"
   },
   {
@@ -56,7 +52,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Bandurria",
     scientificName: "Theristicus melanopis",
     family: "Threskiornithidae",
-    description: "Inconfundible por su largo pico curvado y su potente reclamo en praderas y humedales del sur.",
     tag: "Humedales"
   },
   {
@@ -64,7 +59,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Carpintero Negro",
     scientificName: "Campephilus magellanicus",
     family: "Picidae",
-    description: "Majestuoso habitante de los bosques maduros patagónicos y templados.",
     tag: "Bosque Nativo"
   },
   {
@@ -72,7 +66,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Loica Común",
     scientificName: "Leistes loyca",
     family: "Icteridae",
-    description: "Ave de inconfundible y encendido pecho rojo, reina de prados y de la tradición popular.",
     tag: "Praderas"
   },
   {
@@ -80,7 +73,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Picaflor Chico",
     scientificName: "Sephanoides sephaniodes",
     family: "Trochilidae",
-    description: "Pequeña joya alada de brillante corona incandescente y vuelo suspendido.",
     tag: "Jardines y Bosques"
   },
   {
@@ -88,7 +80,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Cóndor Andino",
     scientificName: "Vultur gryphus",
     family: "Cathartidae",
-    description: "El gigante de los Andes, amo y señor de las cumbres y corrientes térmicas de Chile.",
     tag: "Alta Montaña"
   },
   {
@@ -96,7 +87,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Cisne de Cuello Negro",
     scientificName: "Cygnus melancoryphus",
     family: "Anatidae",
-    description: "Símbolo de elegancia en santuarios de la naturaleza y humedales del centro-sur.",
     tag: "Santuario"
   },
   {
@@ -104,7 +94,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Pilpilén Común",
     scientificName: "Haematopus palliatus",
     family: "Haematopodidae",
-    description: "Habitante de playas de arena, con su brillante pico rojo especializado en abrir moluscos.",
     tag: "Costa Arenosa"
   },
   {
@@ -112,7 +101,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Pingüino de Magallanes",
     scientificName: "Spheniscus magellanicus",
     family: "Spheniscidae",
-    description: "Navegante experto de los canales sureños e islas del Pacífico.",
     tag: "Marino"
   },
   {
@@ -120,7 +108,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Tucúquere",
     scientificName: "Bubo magellanicus",
     family: "Strigidae",
-    description: "El búho más grande de Chile, guardián nocturno con intensos ojos amarillos.",
     tag: "Rapaz Nocturna"
   },
   {
@@ -128,7 +115,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Queltehue Común",
     scientificName: "Vanellus chilensis",
     family: "Charadriidae",
-    description: "El centinela veloz de campos y parques, siempre alerta con su característico grito.",
     tag: "Campos"
   },
   {
@@ -136,7 +122,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Flamenco Chileno",
     scientificName: "Phoenicopterus chilensis",
     family: "Phoenicopteridae",
-    description: "Espectacular ave de plumaje rosado que engalana salares y humedales costeros.",
     tag: "Salares y Costas"
   },
   {
@@ -144,7 +129,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Chorlo Chileno",
     scientificName: "Zonibyx modestus",
     family: "Charadriidae",
-    description: "Ave playera y migratoria de delicado plumaje en pecho y cabeza.",
     tag: "Playero Migratorio"
   },
   {
@@ -152,7 +136,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Pitotoy Chico",
     scientificName: "Tringa flavipes",
     family: "Scolopacidae",
-    description: "Pequeño viajero de largas patas amarillas que frecuenta estuarios y marismas.",
     tag: "Playero"
   },
   {
@@ -160,7 +143,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Playero Vuelvepiedras",
     scientificName: "Arenaria interpres",
     family: "Scolopacidae",
-    description: "Curioso volcador de rocas costeras en busca de pequeños invertebrados.",
     tag: "Intertidal"
   },
   {
@@ -168,7 +150,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Fardela Blanca",
     scientificName: "Ardenna creatopus",
     family: "Procellariidae",
-    description: "Ave pelágica viajera que anida exclusivamente en islas chilenas.",
     tag: "Pelágico"
   },
   {
@@ -176,7 +157,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Gaviotín Monja",
     scientificName: "Larosterna inca",
     family: "Laridae",
-    description: "Habitante de acantilados marinos con inconfundibles plumachos blancos en las mejillas.",
     tag: "Acantilados Costeros"
   },
   {
@@ -184,7 +164,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Gaviota Cáhuil",
     scientificName: "Chroicocephalus maculipennis",
     family: "Laridae",
-    description: "Gaviota de capuchón café en época reproductiva, habitual en estuarios y campos.",
     tag: "Estuarios"
   },
   {
@@ -192,7 +171,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Huairavo Común",
     scientificName: "Nycticorax nycticorax",
     family: "Ardeidae",
-    description: "Garza nocturna de mirada penetrante y hábil pescadora en riberas.",
     tag: "Garza Nocturna"
   },
   {
@@ -200,7 +178,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Huala",
     scientificName: "Podiceps major",
     family: "Podicipedidae",
-    description: "El zambullidor insigne de lagos del sur, de cuello esbelto y cortejo vistoso.",
     tag: "Lagos del Sur"
   },
   {
@@ -208,7 +185,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Lile",
     scientificName: "Poikilocarbo gaimardi",
     family: "Phalacrocoracidae",
-    description: "Cormorán de vistosas patas rojas y llamativo parche blanco en el cuello.",
     tag: "Costa Rocosa"
   },
   {
@@ -216,7 +192,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Pato Real",
     scientificName: "Mareca sibilatrix",
     family: "Anatidae",
-    description: "Pato silvador de vistoso contraste blanco, verde y negro.",
     tag: "Humedales"
   },
   {
@@ -224,7 +199,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Peuquita",
     scientificName: "Astur chilensis",
     family: "Accipitridae",
-    description: "Ágil cazadora del interior del bosque nativo.",
     tag: "Rapaz de Bosque"
   },
   {
@@ -232,7 +206,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Pidén Común",
     scientificName: "Pardirallus sanguinolentus",
     family: "Rallidae",
-    description: "Ave escurridiza de pico verde-azulado que se mueve entre los juncos.",
     tag: "Juncales"
   },
   {
@@ -240,7 +213,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Piquero Común",
     scientificName: "Sula variegata",
     family: "Sulidae",
-    description: "Pescador acrobático que se arroja al mar en picadas espectaculares.",
     tag: "Marino"
   },
   {
@@ -248,7 +220,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Tagua Común",
     scientificName: "Fulica armillata",
     family: "Rallidae",
-    description: "Inseparable de lagunas chilena con su característico escudete ambarino.",
     tag: "Lagunas"
   },
   {
@@ -256,7 +227,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Tiuque",
     scientificName: "Milvago chimango",
     family: "Falconidae",
-    description: "La rapaz más común y vivaz de nuestros paisajes rurales y urbanos.",
     tag: "Adaptativo"
   },
   {
@@ -264,7 +234,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Tórtola Común",
     scientificName: "Zenaida auriculata",
     family: "Columbidae",
-    description: "Apacible y caminante, acompañante fiel de nuestros valles y pueblos.",
     tag: "Valles"
   },
   {
@@ -272,7 +241,6 @@ export const BIRD_SPECIES: BirdSpecies[] = [
     name: "Ñandú / Suri",
     scientificName: "Rhea pennata",
     family: "Rheidae",
-    description: "La gran ave corredora de las estepas sureñas de la Patagonia.",
     tag: "Estepa Patagónica"
   }
 ];
