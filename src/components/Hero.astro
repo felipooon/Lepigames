@@ -169,11 +169,11 @@ import { SITE_CONFIG } from '../config/site';
           </svg>
         </div>
 
-        <!-- Center Image of Two Cachañas perched on branch overlapping title & separating EL JUEGO / DE CHILE -->
+        <!-- Center Image of Two Cachañas perched on branch (TRULY TRANSPARENT) -->
         <div class="relative flex flex-col items-center justify-center -mt-10 sm:-mt-16 md:-mt-24">
           
           <!-- Cutout Image of Two Cachañas -->
-          <div class="w-48 sm:w-64 md:w-80 h-auto z-20 pointer-events-none drop-shadow-2xl">
+          <div class="w-48 sm:w-64 md:w-80 h-auto z-20 pointer-events-none drop-shadow-xl">
             <Image 
               src={cachanasImg} 
               alt="Pareja de Cachañas ilustradas" 
@@ -181,9 +181,9 @@ import { SITE_CONFIG } from '../config/site';
             />
           </div>
 
-          <!-- EL JUEGO ... DE CHILE Subtitle -->
-          <div class="w-full max-w-3xl flex justify-between items-center -mt-12 sm:-mt-16 md:-mt-20 px-4 sm:px-12 z-10 font-extrabold text-2xl sm:text-4xl md:text-5xl uppercase tracking-widest text-[#22471d]">
-            <span>EL JUEGO</span>
+          <!-- Subtitle: EL JUEGO DE AVES DE CHILE -->
+          <div class="w-full max-w-4xl flex justify-between items-center -mt-12 sm:-mt-16 md:-mt-20 px-2 sm:px-6 z-10 font-extrabold text-xl sm:text-3xl md:text-4xl uppercase tracking-widest text-[#22471d]">
+            <span>EL JUEGO DE AVES</span>
             <span>DE CHILE</span>
           </div>
 
@@ -192,40 +192,40 @@ import { SITE_CONFIG } from '../config/site';
       </div>
     </div>
 
-    <!-- Bottom Photo & 3 Overlay Cards Section -->
+    <!-- Bottom Photo & 3 Text Columns Section (WITHOUT CARD BACKGROUNDS) -->
     <div class="relative w-full overflow-hidden bg-emerald-950 border-t border-[#1b3519]/30">
       
       <!-- Background Photo -->
       <Image 
         src={cachanaPhotoBg} 
         alt="Aves Cachañas en Árbol" 
-        class="w-full h-full object-cover min-h-[480px] sm:min-h-[520px] brightness-95"
+        class="w-full h-full object-cover min-h-[440px] sm:min-h-[480px] brightness-90"
       />
 
-      <!-- Dark Gradient Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/20"></div>
+      <!-- Dark Gradient Overlay for legibility without card backgrounds -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/30"></div>
 
-      <!-- 3 Overlay Cards Grid -->
-      <div class="absolute inset-0 p-4 sm:p-8 md:p-10 flex items-end z-10">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 w-full text-white text-center max-w-7xl mx-auto">
+      <!-- 3 Text Columns Grid (Direct text on photo, no card background) -->
+      <div class="absolute inset-0 p-6 sm:p-10 md:p-12 flex items-end z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 w-full text-white text-center max-w-7xl mx-auto">
           
-          <!-- Card 1 -->
-          <div class="bg-black/60 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/20 shadow-2xl flex flex-col justify-center">
-            <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-white/95">
+          <!-- Column 1 -->
+          <div class="flex flex-col justify-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            <p class="text-sm sm:text-base leading-relaxed font-sans font-semibold text-white/95">
               El juego se compone de <strong>31 especies</strong> que albergan representantes de cada familia de aves en Chile. Cada ave ha sido seleccionado para familiarizar al jugador con la diversidad de nuestro patrimonio natural.
             </p>
           </div>
 
-          <!-- Card 2 -->
-          <div class="bg-black/60 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/20 shadow-2xl flex flex-col justify-center">
-            <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-white/95">
+          <!-- Column 2 -->
+          <div class="flex flex-col justify-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            <p class="text-sm sm:text-base leading-relaxed font-sans font-semibold text-white/95">
               Más que un juego, es una <strong>invitación a la pausa y al reconocimiento</strong> de nuestro patrimonio alado a través de la observación profunda y la memoria visual.
             </p>
           </div>
 
-          <!-- Card 3 -->
-          <div class="bg-black/60 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/20 shadow-2xl flex flex-col justify-center">
-            <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-white/95">
+          <!-- Column 3 -->
+          <div class="flex flex-col justify-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            <p class="text-sm sm:text-base leading-relaxed font-sans font-semibold text-white/95">
               Las cachañas (<em>Enicognathus ferrugineus</em>) Quienes le dan nombre a nuestro primer juego, se caracterizan por ser aves gregarias, bulliciosas y sobre todo curiosas.<br/><br/>
               Como tal como las cachañas, este juego celebra la naturaleza gregaria del ser humano, el asombro compartido y la alegría vivida en cada partida.
             </p>
@@ -235,7 +235,7 @@ import { SITE_CONFIG } from '../config/site';
       </div>
 
       <!-- Gonzalo Flores Photo Credit -->
-      <div class="absolute bottom-2 right-4 z-20 text-[11px] sm:text-xs text-white/90 font-sans tracking-wide">
+      <div class="absolute bottom-2 right-4 z-20 text-[11px] sm:text-xs text-white/90 font-sans tracking-wide drop-shadow-md">
         Gonzalo Flores
       </div>
 
