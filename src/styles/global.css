@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Lora', 'Outfit', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+    background-color: #e5ebd9;
+    color: #1b3519;
+  }
+
+  body {
+    background-image: url('/src/assets/branding/trama-bg.png');
+    background-repeat: repeat;
+    background-size: 600px auto;
+    background-attachment: fixed;
+    background-color: #e5ebd9;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Prototype Custom Styling Tokens */
+.proto-title {
+  font-family: 'Lora', serif;
+  color: #8da468;
+}
+
+.proto-dark-green {
+  background-color: #2b4f25;
+}
+
+.proto-pill-bar {
+  background-color: #3b6034;
+}
+
+.proto-card-bg {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(43, 79, 37, 0.15);
+}
+
+/* Styled Details for FAQ Accordion */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Stamp Frame Effect for Hero Photo */
+.stamp-frame {
+  background: white;
+  padding: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  border: 12px solid white;
+  border-image: radial-gradient(transparent 0px, transparent 4px, white 5px) 12;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #d8e2c8;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b4f25;
+  border-radius: 5px;
+}

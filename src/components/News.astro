@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import newsChamiza from '../assets/news/chamiza-news.png';
+import newsPudufest from '../assets/news/pudufest-news.png';
+
+const newsItems = [
+  {
+    image: newsChamiza,
+    title: "Estudiantes de Escuela Rural La Chamiza aprenden sobre aves nativas a través del juego Cachañando",
+    category: "Noticia Destacada • ROC",
+    linkText: "Leer noticia en ROC",
+    url: "https://www.redobservadores.cl/estudiantes-de-escuela-rural-la-chamiza-aprenden-sobre-aves-nativas-a-traves-del-juego-cachanando/"
+  },
+  {
+    image: newsPudufest,
+    title: "Núcleo ROC Los Lagos se suma al Pudúfest 2026 para promover el conocimiento y conservación de las aves en Chiloé",
+    category: "Mención en Eventos • Pudú Fest",
+    linkText: "Leer noticia en ROC",
+    url: "https://www.redobservadores.cl/nucleo-roc-los-lagos-se-suma-al-pudufest-2026-para-promover-el-conocimiento-y-conservacion-de-las-aves-en-chiloe/"
+  }
+];
+---
+
+<section id="noticias" class="py-16 relative border-t border-[#2b4f25]/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Prototype Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-2 mb-12">
+      <h2 class="text-3xl sm:text-5xl font-serif font-bold text-[#1b3519]">
+        NOTICIAS
+      </h2>
+      <p class="text-lg sm:text-2xl font-serif italic text-[#35592f]">
+        Pequeños pasos, grandes logros
+      </p>
+    </div>
+
+    <!-- News Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {newsItems.map((item) => (
+        <a 
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group bg-white rounded-3xl overflow-hidden border border-[#2b4f25]/15 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1"
+        >
+          <div class="relative aspect-16/9 overflow-hidden bg-gray-900">
+            <Image 
+              src={item.image} 
+              alt={item.title} 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              width={600}
+              height={337}
+            />
+          </div>
+          
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full bg-[#e5ebd9] text-[#2b4f25] font-bold text-xs uppercase tracking-wider mb-2">
+                {item.category}
+              </span>
+              <h3 class="font-serif font-bold text-base sm:text-lg text-[#1b3519] leading-snug group-hover:text-[#2b4f25] transition-colors">
+                {item.title}
+              </h3>
+            </div>
+
+            <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#2b4f25] group-hover:text-emerald-800 transition-colors uppercase tracking-wider">
+              <span>{item.linkText}</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
+

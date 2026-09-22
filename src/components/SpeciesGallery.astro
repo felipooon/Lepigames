@@ -1,0 +1,243 @@
+---
+import { Image } from 'astro:assets';
+import { BIRD_SPECIES } from '../config/site';
+
+// Import all bird images dynamically using Vite's glob import
+const birdImagesConFondo = import.meta.glob<{ default: ImageMetadata }>('../assets/birds/con-fondo/*.png');
+const birdImagesSinFondo = import.meta.glob<{ default: ImageMetadata }>('../assets/birds/sin-fondo/*.png');
+
+// Build array combining species data with both image loaders
+const speciesList = await Promise.all(
+  BIRD_SPECIES.map(async (bird) => {
+    const cfPath = `../assets/birds/con-fondo/${bird.slug}.png`;
+    const sfPath = `../assets/birds/sin-fondo/${bird.slug}.png`;
+    
+    const cfLoader = birdImagesConFondo[cfPath];
+    const sfLoader = birdImagesSinFondo[sfPath];
+
+    const cfModule = cfLoader ? await cfLoader() : null;
+    const sfModule = sfLoader ? await sfLoader() : null;
+
+    return {
+      ...bird,
+      imageConFondo: cfModule ? cfModule.default : null,
+      imageSinFondo: sfModule ? sfModule.default : null,
+    };
+  })
+);
+---
+
+<section id="especies" class="py-16 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Prototype Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-3 mb-10">
+      <h2 class="text-3xl sm:text-5xl font-serif font-bold text-[#8da468] tracking-tight">
+        Conoce a las especies protagonistas
+      </h2>
+      <p class="text-sm sm:text-base text-[#1b3519]/80 font-serif italic">
+        Haz clic sobre cualquiera de las 31 aves para desplegar la ilustración ampliada y conocer más sobre su hábitat.
+      </p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="max-w-md mx-auto mb-10">
+      <div class="relative">
+        <input
+          type="text"
+          id="species-search"
+          placeholder="Buscar especie (ej. Chucao, Cóndor, Loica)..."
+          class="w-full px-5 py-3 pl-12 rounded-full bg-white/90 border border-[#2b4f25]/20 shadow-sm text-sm text-[#1b3519] placeholder-[#1b3519]/40 focus:outline-none focus:ring-2 focus:ring-[#2b4f25]"
+        />
+        <svg class="w-5 h-5 absolute left-4 top-3.5 text-[#2b4f25]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 31 Species Grid matching PDF Layout -->
+    <div id="species-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8">
+      {speciesList.map((bird) => (
+        <button
+          type="button"
+          class="species-card group text-center flex flex-col items-center justify-between p-3 rounded-2xl bg-white/60 hover:bg-white border border-[#2b4f25]/10 hover:border-[#2b4f25]/30 shadow-xs hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer focus:outline-none"
+          data-slug={bird.slug}
+          data-name={bird.name}
+          data-scientific={bird.scientificName}
+          data-family={bird.family}
+          data-description={bird.description}
+          data-tag={bird.tag || ''}
+          data-img-src={bird.imageConFondo ? bird.imageConFondo.src : ''}
+        >
+          <!-- Bird Illustration Container (Using sin-fondo / transparent PNG as PDF prototype) -->
+          <div class="relative w-full aspect-square flex items-center justify-center p-2 mb-2 bg-transparent">
+            {bird.imageSinFondo ? (
+              <Image
+                src={bird.imageSinFondo}
+                alt={`Ilustración de ${bird.name}`}
+                class="max-h-36 w-auto object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-md"
+                width={250}
+                height={250}
+              />
+            ) : bird.imageConFondo ? (
+              <Image
+                src={bird.imageConFondo}
+                alt={`Ilustración de ${bird.name}`}
+                class="max-h-36 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                width={250}
+                height={250}
+              />
+            ) : (
+              <span class="text-xs text-[#2b4f25]">Sin imagen</span>
+            )}
+          </div>
+
+          <!-- Bird Titles -->
+          <div class="w-full text-center">
+            <h3 class="font-sans font-semibold text-xs sm:text-sm text-[#2b4f25] leading-tight group-hover:text-emerald-700 transition-colors">
+              {bird.name}
+            </h3>
+            <p class="text-[11px] font-serif italic text-[#1b3519]/70 truncate mt-0.5">
+              {bird.scientificName}
+            </p>
+          </div>
+        </button>
+      ))}
+    </div>
+
+  </div>
+
+  <!-- Interactive Lightbox Modal -->
+  <div
+    id="bird-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-sm transition-opacity"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="relative bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-emerald-900/20 transform transition-all scale-95 opacity-0 modal-content">
+      
+      <!-- Close Button -->
+      <button
+        id="modal-close"
+        type="button"
+        class="absolute top-4 right-4 p-2 rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+        aria-label="Cerrar modal"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Modal Content -->
+      <div class="text-center">
+        <!-- Enlarged Image -->
+        <div class="relative max-w-xs mx-auto aspect-4/5 rounded-2xl overflow-hidden bg-[#e5ebd9]/50 border border-emerald-900/10 shadow-md mb-4 flex items-center justify-center">
+          <img id="modal-img" src="" alt="" class="w-full h-full object-contain p-3" />
+        </div>
+
+        <span id="modal-tag" class="inline-block px-3 py-1 rounded-full bg-[#35592f] text-white font-bold text-xs uppercase tracking-wider mb-2"></span>
+        <h3 id="modal-title" class="text-2xl font-serif font-bold text-[#1b3519]"></h3>
+        <p id="modal-scientific" class="text-sm italic font-serif text-[#2b4f25] mb-1"></p>
+        <p id="modal-family" class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3"></p>
+        
+        <p id="modal-description" class="text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-gray-100 pt-3 text-left">
+        </p>
+
+        <div class="mt-6 pt-3 border-t border-gray-100 flex justify-end">
+          <button
+            id="modal-btn-close"
+            type="button"
+            class="px-5 py-2 rounded-full bg-[#2b4f25] hover:bg-[#203c1b] text-white font-bold text-xs transition-colors"
+          >
+            Cerrar vista
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Search filtering
+  const searchInput = document.getElementById('species-search') as HTMLInputElement;
+  const cards = document.querySelectorAll('.species-card');
+
+  searchInput?.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    cards.forEach((card) => {
+      const name = card.getAttribute('data-name')?.toLowerCase() || '';
+      const scientific = card.getAttribute('data-scientific')?.toLowerCase() || '';
+      const family = card.getAttribute('data-family')?.toLowerCase() || '';
+      if (name.includes(query) || scientific.includes(query) || family.includes(query)) {
+        (card as HTMLElement).style.display = 'flex';
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+  });
+
+  // Modal logic
+  const modal = document.getElementById('bird-modal');
+  const modalContent = modal?.querySelector('.modal-content');
+  const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+  const modalTitle = document.getElementById('modal-title');
+  const modalScientific = document.getElementById('modal-scientific');
+  const modalFamily = document.getElementById('modal-family');
+  const modalTag = document.getElementById('modal-tag');
+  const modalDescription = document.getElementById('modal-description');
+  const modalClose = document.getElementById('modal-close');
+  const modalBtnClose = document.getElementById('modal-btn-close');
+
+  function openModal(card: Element) {
+    const name = card.getAttribute('data-name') || '';
+    const scientific = card.getAttribute('data-scientific') || '';
+    const family = card.getAttribute('data-family') || '';
+    const description = card.getAttribute('data-description') || '';
+    const tag = card.getAttribute('data-tag') || 'Ave de Chile';
+    const imgSrc = card.getAttribute('data-img-src') || '';
+
+    if (modalImg) {
+      modalImg.src = imgSrc;
+      modalImg.alt = `Ilustración de ${name}`;
+    }
+    if (modalTitle) modalTitle.textContent = name;
+    if (modalScientific) modalScientific.textContent = scientific;
+    if (modalFamily) modalFamily.textContent = family;
+    if (modalTag) modalTag.textContent = tag;
+    if (modalDescription) modalDescription.textContent = description;
+
+    modal?.classList.remove('hidden');
+    modal?.classList.add('flex');
+    setTimeout(() => {
+      modalContent?.classList.remove('scale-95', 'opacity-0');
+      modalContent?.classList.add('scale-100', 'opacity-100');
+    }, 10);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modalContent?.classList.remove('scale-100', 'opacity-100');
+    modalContent?.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+      modal?.classList.remove('flex');
+      modal?.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 200);
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => openModal(card));
+  });
+
+  modalClose?.addEventListener('click', closeModal);
+  modalBtnClose?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>

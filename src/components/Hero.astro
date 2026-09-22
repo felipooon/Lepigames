@@ -1,0 +1,197 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/branding/logo.png';
+import cartasImg from '../assets/branding/cartas.png';
+import tejasImg from '../assets/branding/tejas.png';
+import cachanaPhotoBg from '../assets/proto_crops/cachana-photo-bg.png';
+import cachanaSinFondo from '../assets/birds/sin-fondo/cachana.png';
+import { SITE_CONFIG } from '../config/site';
+---
+
+<section id="inicio" class="relative overflow-hidden pt-6 pb-12">
+  
+  <!-- 1. Big Main Logo Showcase -->
+  <div class="max-w-5xl mx-auto px-4 text-center py-10 sm:py-14">
+    <div class="max-w-2xl sm:max-w-3xl mx-auto">
+      <Image 
+        src={logoImg} 
+        alt="Lëpigames Logo" 
+        class="w-full h-auto object-contain mx-auto max-h-60 sm:max-h-80 md:max-h-96"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <!-- 2. Horizontal Green Shingle (Tejas) Badges Bar -->
+  <div class="relative bg-[#85a67c] py-5 my-4 border-y-2 border-[#1b3519] overflow-hidden shadow-md">
+    <!-- Tejas background texture blended seamlessly -->
+    <div 
+      class="absolute inset-0 bg-repeat-x bg-center opacity-95 mix-blend-multiply pointer-events-none"
+      style={`background-image: url('${tejasImg.src}'); background-size: auto 100%;`}
+    ></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 items-center">
+        
+        <!-- Badge 1: Region de Los Lagos -->
+        <div class="flex items-center gap-3 px-1 sm:px-2">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-[#1b3519] bg-[#a7c79e] text-[#1b3519] flex items-center justify-center shrink-0 shadow-md">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 19c-4 0-7.333-2.333-10-7 2.667-4.667 6-7 10-7s7.333 2.333 10 7c-2.667 4.667-6 7-10 7z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/>
+            </svg>
+          </div>
+          <span class="text-white font-bold text-xs sm:text-sm lg:text-base leading-tight drop-shadow-[0_1.5px_2px_rgba(0,0,0,0.6)]">
+            Hecho en la Región de Los Lagos, Chile.
+          </span>
+        </div>
+
+        <!-- Badge 2: Enviamos a todo Chile -->
+        <div class="flex items-center gap-3 px-1 sm:px-2">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-[#1b3519] bg-[#a7c79e] text-[#1b3519] flex items-center justify-center shrink-0 shadow-md">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+            </svg>
+          </div>
+          <span class="text-white font-bold text-xs sm:text-sm lg:text-base leading-tight drop-shadow-[0_1.5px_2px_rgba(0,0,0,0.6)]">
+            Enviamos a todo Chile
+          </span>
+        </div>
+
+        <!-- Badge 3: Compra segura -->
+        <div class="flex items-center gap-3 px-1 sm:px-2">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-[#1b3519] bg-[#a7c79e] text-[#1b3519] flex items-center justify-center shrink-0 shadow-md">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <span class="text-white font-bold text-xs sm:text-sm lg:text-base leading-tight drop-shadow-[0_1.5px_2px_rgba(0,0,0,0.6)]">
+            Compra segura
+          </span>
+        </div>
+
+        <!-- Badge 4: Hecho con Amor -->
+        <div class="flex items-center gap-3 px-1 sm:px-2">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-[#1b3519] bg-[#a7c79e] text-[#1b3519] flex items-center justify-center shrink-0 shadow-md">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <span class="text-white font-bold text-xs sm:text-sm lg:text-base leading-tight drop-shadow-[0_1.5px_2px_rgba(0,0,0,0.6)]">
+            Hecho con Amor
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Dark Green Section with Stamp Photo & Quote -->
+  <div class="bg-[#244421] text-white py-14 px-4 sm:px-6 lg:px-8 shadow-xl">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      
+      <!-- Left: Stamp Photo Frame -->
+      <div class="md:col-span-5 flex justify-center">
+        <div class="relative bg-white p-3 rounded-lg shadow-2xl max-w-xs sm:max-w-sm rotate-[-2deg] hover:rotate-0 transition-transform duration-300">
+          <div class="overflow-hidden rounded-xs border border-amber-900/20">
+            <Image 
+              src={cartasImg} 
+              alt="Cartas Cachañando" 
+              class="w-full h-auto object-cover"
+            />
+          </div>
+          <!-- Golden Stamp Motif Overlay -->
+          <div class="absolute -bottom-4 -right-4 w-16 h-16 rounded-full border-2 border-amber-400/80 bg-emerald-950/90 text-amber-300 flex items-center justify-center text-[9px] font-bold text-center leading-tight shadow-lg uppercase p-1">
+            Lëpigames<br/>Chile
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Main Quote Banner -->
+      <div class="md:col-span-7 text-center md:text-left space-y-4">
+        <blockquote class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-emerald-50 leading-tight">
+          "No se puede amar lo que no se conoce, ni defender lo que no se ama."
+        </blockquote>
+        <p class="text-xl sm:text-2xl text-emerald-200 font-serif italic text-right pr-4">
+          - Lëpigames
+        </p>
+
+        <div class="pt-4 flex justify-center md:justify-start">
+          <a
+            href={SITE_CONFIG.mercadoPagoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 bg-amber-400 hover:bg-amber-300 text-[#1b3519] font-extrabold text-base px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1"
+          >
+            <span>Quiero comprar Cachañando</span>
+            <svg class="w-5 h-5 text-[#1b3519]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. Playful "Conoce a CACHAÑANDO" Banner -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+    
+    <!-- Curved Header Banner Title -->
+    <div class="text-center py-6">
+      <h2 class="text-3xl sm:text-5xl font-black tracking-wide text-[#e76f51] uppercase drop-shadow-sm font-sans flex items-center justify-center gap-3">
+        <span>Conoce a</span>
+        <span class="text-4xl sm:text-6xl text-[#e65c00]">CACHAÑANDO</span>
+      </h2>
+      <p class="text-xl sm:text-2xl font-bold uppercase tracking-widest text-[#244421] mt-1">
+        El Juego de Chile
+      </p>
+    </div>
+
+    <!-- Photo Background Banner with 3 Overlay Cards -->
+    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#244421]/20">
+      
+      <!-- Background Photo -->
+      <Image 
+        src={cachanaPhotoBg} 
+        alt="Aves Cachañas en Hábitat Natural" 
+        class="w-full h-full object-cover min-h-[400px] brightness-90"
+      />
+
+      <!-- Dark Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+      <!-- 3 Overlay Cards Grid -->
+      <div class="absolute inset-0 p-6 sm:p-10 flex items-end">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-white">
+          
+          <!-- Card 1 -->
+          <div class="bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-white/20">
+            <p class="text-xs sm:text-sm leading-relaxed">
+              El juego se compone de <strong>31 especies</strong> que albergan representantes de cada familia de aves en Chile. Cada ave ha sido seleccionada para familiarizar al jugador con la diversidad de nuestro patrimonio natural.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-white/20">
+            <p class="text-xs sm:text-sm leading-relaxed">
+              Más que un juego, es una <strong>invitación a la pausa y al reconocimiento</strong> de nuestro patrimonio alado a través de la observación profunda y la memoria visual.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-white/20 relative">
+            <p class="text-xs sm:text-sm leading-relaxed">
+              Las cachañas (<em>Enicognathus ferrugineus</em>) quienes le dan nombre a nuestro primer juego, se caracterizan por ser aves gregarias, bulliciosas y curiosas. Tal como las cachañas, este juego celebra la alegría vivida en cada partida.
+            </p>
+            <span class="block text-[10px] text-amber-300 text-right mt-2 italic font-serif">
+              Foto: Gonzalo Flores
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

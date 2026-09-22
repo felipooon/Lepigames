@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import { SITE_CONFIG } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${SITE_CONFIG.name} | ${SITE_CONFIG.gameName} - Juego Educativo de Aves de Chile`,
+  description = "Descubre Cachañando: el juego de cartas de observación y memoria con 31 especies de aves de Chile. Ciencia, arte y educación desde la Región de Los Lagos."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={SITE_CONFIG.author} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="es_CL" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+  </head>
+  <body class="bg-[#fcfbf7] text-[#1a2e26] antialiased selection:bg-[#52b788] selection:text-white flex flex-col min-h-screen">
+    <slot />
+
+    <!-- Floating Mobile CTA Bar -->
+    <div class="fixed bottom-4 left-4 right-4 z-40 md:hidden flex items-center justify-between gap-3 p-3 rounded-2xl glass-panel shadow-2xl border border-emerald-500/20">
+      <div class="flex items-center gap-2 pl-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs font-bold text-emerald-950 uppercase tracking-wider">{SITE_CONFIG.gameName}</span>
+      </div>
+      <a 
+        href={SITE_CONFIG.mercadoPagoUrl} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-md transition-transform active:scale-95 flex items-center gap-1.5"
+      >
+        <span>Quiero comprar</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+    </div>
+  </body>
+</html>

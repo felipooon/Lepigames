@@ -1,0 +1,133 @@
+---
+import { FAQS, SITE_CONFIG } from '../config/site';
+
+const infoCards = [
+  {
+    icon: "truck",
+    title: "¿Envíos a todo Chile?",
+    text: "Sí, despachamos a todas las regiones por los medios a convenir."
+  },
+  {
+    icon: "clock",
+    title: "¿Tiempo de despacho?",
+    text: "Preparamos y enviamos tu pedido en un máximo de 24 horas hábiles."
+  },
+  {
+    icon: "card",
+    title: "¿Medios de pago?",
+    text: "Aceptamos MercadoPago (tarjetas de débito/crédito) y transferencia bancaria."
+  }
+];
+
+const contactCards = [
+  {
+    icon: "whatsapp",
+    title: "WhatsApp Directo",
+    text: "Escríbenos para consultas rápidas sobre productos, stock o tu número de envío.",
+    btnText: "Escribir a WhatsApp",
+    btnColor: "bg-[#25d366] hover:bg-[#20ba5a] text-white",
+    url: `https://wa.me/${SITE_CONFIG.whatsAppNumber.replace('+', '')}?text=${encodeURIComponent(SITE_CONFIG.whatsAppMessage)}`
+  },
+  {
+    icon: "instagram",
+    title: "Instagram",
+    text: "Síguenos para conocer nuevos lanzamientos, ilustraciones de aves y fotos en terreno.",
+    btnText: "Ir a Instagram",
+    btnColor: "bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-90 text-white",
+    url: SITE_CONFIG.instagramUrl
+  },
+  {
+    icon: "email",
+    title: "Correo Electrónico",
+    text: "Escríbenos a contacto@garatienda.cl para consultas generales o empresariales.",
+    btnText: "Enviar Correo",
+    btnColor: "bg-[#34495e] hover:bg-[#2c3e50] text-white",
+    url: "mailto:contacto@garatienda.cl"
+  }
+];
+---
+
+<section id="faq" class="py-16 relative border-t border-[#2b4f25]/10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <!-- Prototype Section Header -->
+    <div class="text-center space-y-2">
+      <span class="text-xs font-bold text-[#35592f] uppercase tracking-widest block font-sans">
+        Atencion al Lepigamer
+      </span>
+      <h2 class="text-4xl sm:text-6xl font-serif font-bold text-[#1b3519]">
+        HABLEMOS :)
+      </h2>
+      <p class="text-base sm:text-lg text-[#1b3519]/80 font-serif max-w-xl mx-auto">
+        ¿Tienes alguna duda sobre nosotros, despacho o medio de pago?<br/>Estamos para ayudarte.
+      </p>
+    </div>
+
+    <!-- 1. 3 Top Info Cards (Exact PDF layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {infoCards.map((info) => (
+        <div class="bg-white/90 p-6 rounded-2xl border border-[#2b4f25]/15 shadow-sm text-center space-y-2">
+          <div class="w-10 h-10 rounded-full bg-[#e5ebd9] text-[#2b4f25] flex items-center justify-center mx-auto mb-3">
+            {info.icon === 'truck' && <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>}
+            {info.icon === 'clock' && <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>}
+            {info.icon === 'card' && <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>}
+          </div>
+          <h3 class="font-bold text-sm text-[#1b3519]">{info.title}</h3>
+          <p class="text-xs text-[#1b3519]/75 font-serif leading-relaxed">{info.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- 2. 3 Bottom Contact Action Cards (Exact PDF layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {contactCards.map((contact) => (
+        <div class="bg-white p-6 rounded-3xl border border-[#2b4f25]/15 shadow-md text-center flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <h3 class="font-bold text-base text-[#1b3519]">{contact.title}</h3>
+            <p class="text-xs text-gray-600 leading-relaxed max-w-xs mx-auto">{contact.text}</p>
+          </div>
+          
+          <div>
+            <a
+              href={contact.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`w-full inline-flex items-center justify-center gap-2 font-bold text-xs py-3 px-4 rounded-xl shadow-xs transition-all ${contact.btnColor}`}
+            >
+              <span>{contact.btnText}</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- 3. Extended FAQ Accordion -->
+    <div class="pt-8 border-t border-[#2b4f25]/15 space-y-4 max-w-4xl mx-auto">
+      <h3 class="text-center font-serif font-bold text-xl text-[#1b3519] mb-6">
+        Preguntas Frecuentes Detalladas
+      </h3>
+
+      {FAQS.map((faq, index) => (
+        <details 
+          class="group bg-white/90 rounded-2xl border border-[#2b4f25]/15 shadow-xs overflow-hidden"
+          open={index === 0}
+        >
+          <summary class="flex items-center justify-between p-5 cursor-pointer select-none text-left">
+            <h4 class="text-sm sm:text-base font-bold text-[#1b3519] pr-4 group-hover:text-[#2b4f25] transition-colors">
+              {faq.question}
+            </h4>
+            <div class="shrink-0 w-7 h-7 rounded-full bg-[#e5ebd9] text-[#2b4f25] flex items-center justify-center faq-icon transition-transform duration-300">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+          </summary>
+          <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#1b3519]/80 font-serif leading-relaxed border-t border-gray-100">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

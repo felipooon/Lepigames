@@ -1,0 +1,277 @@
+---
+import { Image } from 'astro:assets';
+import { SITE_CONFIG } from '../config/site';
+
+import eduEstudiantes from '../assets/education/torneo-cachañando-estudiantes.jpeg';
+import eduPremiacion8vo from '../assets/education/torneo-cachañando-premiacion-8vo.jpeg';
+import eduExplicacion3ero from '../assets/education/torneo-cachañando-explicacion-3ero.jpeg';
+import eduPremiacionPrekinder from '../assets/education/torneo-cachañando-premiacion-prekinder.jpeg';
+import eduVoluntarios from '../assets/education/torneo-cachañandovoluntarios-roc-y-profesores.jpeg';
+import edu6toBasico from '../assets/education/torneo-cachañando-6to-basico.jpeg';
+
+const educationPhotos = [
+  { src: eduEstudiantes, title: "Estudiantes participando en la jornada", category: "La Chamiza", caption: "Alumnos concentrados en las rondas de agudeza visual durante el torneo de Cachañando." },
+  { src: eduPremiacion8vo, title: "Premiación de 8vo Básico", category: "Reconocimientos", caption: "Entrega de reconocimientos a las y los estudiantes ganadores de cursos superiores." },
+  { src: eduExplicacion3ero, title: "Explicación de reglas en 3er año", category: "Taller ROC", caption: "Voluntarios de la ROC enseñando las dinámicas de observación profunda a los niños." },
+  { src: eduPremiacionPrekinder, title: "Participación en Prekínder", category: "Educación Temprana", caption: "Niñas y niños aprendiendo a identificar la avifauna nativa desde los primeros años." },
+  { src: eduVoluntarios, title: "Voluntarios ROC y Equipo Docente", category: "Comunidad Educativa", caption: "Trabajo en equipo entre Lëpigames, la Red de Observadores de Aves y la Escuela Rural." },
+  { src: edu6toBasico, title: "Jornada de Torneo en 6to Básico", category: "Competencia Sana", caption: "Ronda final de reconocimiento de especies en sala de clases." },
+];
+---
+
+<section id="educacion" class="py-16 relative border-t border-[#2b4f25]/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    
+    <!-- Prototype Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <h2 class="text-3xl sm:text-5xl font-serif font-bold text-[#1b3519]">
+        PROYECTOS EDUCACIONALES
+      </h2>
+      <p class="text-sm sm:text-base text-[#1b3519]/85 font-serif leading-relaxed">
+        Durante Julio de 2026 se llevó a cabo en colaboración con La Red de Observadores de Aves y Vida Silvestre de Chile (ROC) y Escuela Rural La Chamiza:<br/>
+        <strong class="text-[#2b4f25]">El primer torneo de Cachañando</strong>, convocando a voluntarios (ROC), equipo docente, y a estudiantes desde prekínder a 8vo Básico.
+      </p>
+    </div>
+
+    <!-- Modern Interactive Carousel Gallery -->
+    <div class="relative max-w-6xl mx-auto px-2 group">
+      
+      <!-- Prev Button -->
+      <button
+        id="edu-prev-btn"
+        type="button"
+        class="absolute -left-2 sm:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#2b4f25]/90 hover:bg-[#1b3519] text-white flex items-center justify-center shadow-2xl transition-all hover:scale-110 active:scale-95 focus:outline-none cursor-pointer border border-white/20"
+        aria-label="Foto anterior"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+
+      <!-- Next Button -->
+      <button
+        id="edu-next-btn"
+        type="button"
+        class="absolute -right-2 sm:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#2b4f25]/90 hover:bg-[#1b3519] text-white flex items-center justify-center shadow-2xl transition-all hover:scale-110 active:scale-95 focus:outline-none cursor-pointer border border-white/20"
+        aria-label="Siguiente foto"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <!-- Scrollable Track with Smooth Horizontal Sliding -->
+      <div 
+        id="edu-slider-track" 
+        class="flex gap-6 overflow-x-auto py-4 px-3 scroll-smooth no-scrollbar"
+        style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;"
+      >
+        {educationPhotos.map((item, idx) => (
+          <div 
+            class="edu-slide-item min-w-[280px] sm:min-w-[360px] md:min-w-[400px] shrink-0 snap-start bg-white rounded-3xl overflow-hidden border border-[#2b4f25]/15 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer group/card"
+            data-index={idx}
+            data-title={item.title}
+            data-caption={item.caption}
+            data-img-src={item.src.src}
+          >
+            <!-- Photo Container -->
+            <div class="relative aspect-4/3 overflow-hidden bg-gray-100">
+              <Image 
+                src={item.src} 
+                alt={item.title} 
+                class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                width={600}
+                height={450}
+              />
+              <div class="absolute top-3 left-3 bg-[#2b4f25]/85 backdrop-blur-md text-white font-sans text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                {item.category}
+              </div>
+              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/card:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="bg-white/95 text-[#1b3519] font-bold text-xs px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5 transform scale-95 group-hover/card:scale-100 transition-transform">
+                  <svg class="w-4 h-4 text-[#2b4f25]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                  Ampliar foto
+                </span>
+              </div>
+            </div>
+
+            <!-- Content info -->
+            <div class="p-5 space-y-2 flex-1 flex flex-col justify-between bg-white">
+              <div>
+                <h3 class="font-bold text-base text-[#1b3519] group-hover/card:text-[#2b4f25] transition-colors">
+                  {item.title}
+                </h3>
+                <p class="text-xs text-[#1b3519]/75 font-serif leading-relaxed mt-1">
+                  {item.caption}
+                </p>
+              </div>
+              <div class="pt-2 border-t border-gray-100 text-[11px] font-sans text-[#35592f] font-semibold flex items-center justify-between">
+                <span>Escuela Rural La Chamiza</span>
+                <span>ROC Chile</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Pagination Indicators -->
+      <div id="edu-dots" class="flex justify-center items-center gap-2 mt-4">
+        {educationPhotos.map((_, idx) => (
+          <button
+            type="button"
+            class={`edu-dot w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${idx === 0 ? 'bg-[#2b4f25] w-6' : 'bg-[#2b4f25]/30'}`}
+            data-index={idx}
+            aria-label={`Ir a diapositiva ${idx + 1}`}
+          />
+        ))}
+      </div>
+
+    </div>
+
+    <!-- Callout Banner -->
+    <div class="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-white/90 border border-[#2b4f25]/20 shadow-sm text-center space-y-3">
+      <p class="text-base sm:text-lg font-serif text-[#1b3519] leading-relaxed">
+        Si quieres que llevemos <strong>Cachañando</strong> a tu establecimiento educacional contáctanos por nuestros canales oficiales.
+      </p>
+      <div class="pt-1">
+        <a
+          href={`https://wa.me/${SITE_CONFIG.whatsAppNumber.replace('+', '')}?text=${encodeURIComponent('Hola Lëpigames! Me interesa llevar Cachañando a mi establecimiento educacional.')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#2b4f25] hover:bg-[#1b3519] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md transition-all hover:scale-105"
+        >
+          <span>Contactar para talleres en escuelas</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Photo Lightbox Modal -->
+  <div
+    id="photo-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="relative bg-white rounded-3xl max-w-2xl w-full p-4 sm:p-6 shadow-2xl border border-[#2b4f25]/20 transform transition-all scale-95 opacity-0 photo-modal-content">
+      <button
+        id="photo-modal-close"
+        type="button"
+        class="absolute top-4 right-4 p-2 rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-100 z-10"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="space-y-4">
+        <div class="rounded-2xl overflow-hidden bg-gray-100 aspect-16/10 flex items-center justify-center">
+          <img id="photo-modal-img" src="" alt="" class="w-full h-full object-cover" />
+        </div>
+        <div class="px-2 space-y-1">
+          <h3 id="photo-modal-title" class="font-bold text-lg text-[#1b3519]"></h3>
+          <p id="photo-modal-caption" class="text-xs sm:text-sm text-gray-600 font-serif leading-relaxed"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById('edu-slider-track');
+  const prevBtn = document.getElementById('edu-prev-btn');
+  const nextBtn = document.getElementById('edu-next-btn');
+  const dots = document.querySelectorAll('.edu-dot');
+  const slides = document.querySelectorAll('.edu-slide-item');
+
+  // Lightbox Modal
+  const photoModal = document.getElementById('photo-modal');
+  const photoModalContent = photoModal?.querySelector('.photo-modal-content');
+  const photoModalImg = document.getElementById('photo-modal-img') as HTMLImageElement;
+  const photoModalTitle = document.getElementById('photo-modal-title');
+  const photoModalCaption = document.getElementById('photo-modal-caption');
+  const photoModalClose = document.getElementById('photo-modal-close');
+
+  function openPhotoModal(title: string, caption: string, imgSrc: string) {
+    if (photoModalImg) photoModalImg.src = imgSrc;
+    if (photoModalTitle) photoModalTitle.textContent = title;
+    if (photoModalCaption) photoModalCaption.textContent = caption;
+
+    photoModal?.classList.remove('hidden');
+    photoModal?.classList.add('flex');
+    setTimeout(() => {
+      photoModalContent?.classList.remove('scale-95', 'opacity-0');
+      photoModalContent?.classList.add('scale-100', 'opacity-100');
+    }, 10);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePhotoModal() {
+    photoModalContent?.classList.remove('scale-100', 'opacity-100');
+    photoModalContent?.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+      photoModal?.classList.remove('flex');
+      photoModal?.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 200);
+  }
+
+  slides.forEach((slide) => {
+    slide.addEventListener('click', () => {
+      const title = slide.getAttribute('data-title') || '';
+      const caption = slide.getAttribute('data-caption') || '';
+      const imgSrc = slide.getAttribute('data-img-src') || '';
+      openPhotoModal(title, caption, imgSrc);
+    });
+  });
+
+  photoModalClose?.addEventListener('click', closePhotoModal);
+  photoModal?.addEventListener('click', (e) => {
+    if (e.target === photoModal) closePhotoModal();
+  });
+
+  function getSlideWidth() {
+    const slide = track?.querySelector('.edu-slide-item') as HTMLElement;
+    return slide ? slide.offsetWidth + 24 : 350;
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    if (track) {
+      track.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+    }
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    if (track) {
+      track.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+    }
+  });
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      if (track) {
+        track.scrollTo({ left: idx * getSlideWidth(), behavior: 'smooth' });
+      }
+    });
+  });
+
+  let isScrolling: ReturnType<typeof setTimeout>;
+  track?.addEventListener('scroll', () => {
+    clearTimeout(isScrolling);
+    isScrolling = setTimeout(() => {
+      if (!track) return;
+      const slideWidth = getSlideWidth();
+      const activeIndex = Math.min(dots.length - 1, Math.max(0, Math.round(track.scrollLeft / slideWidth)));
+      dots.forEach((d, i) => {
+        if (i === activeIndex) {
+          d.classList.remove('bg-[#2b4f25]/30', 'w-2.5');
+          d.classList.add('bg-[#2b4f25]', 'w-6');
+        } else {
+          d.classList.remove('bg-[#2b4f25]', 'w-6');
+          d.classList.add('bg-[#2b4f25]/30', 'w-2.5');
+        }
+      });
+    }, 60);
+  });
+</script>
