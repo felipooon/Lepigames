@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import logoImg from '../assets/branding/logo.png';
 import cartasImg from '../assets/branding/cartas.png';
 import tejasImg from '../assets/branding/tejas.png';
+import cachanasImg from '../assets/branding/cachanas.png';
+import tramaBg from '../assets/branding/trama-bg.png';
 import cachanaPhotoBg from '../assets/proto_crops/cachana-photo-bg.png';
 import cachanaSinFondo from '../assets/birds/sin-fondo/cachana.png';
 import { SITE_CONFIG } from '../config/site';
@@ -131,62 +133,110 @@ import { SITE_CONFIG } from '../config/site';
     </div>
   </div>
 
-  <!-- 4. Playful "Conoce a CACHAÑANDO" Banner -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+  <!-- 4. Playful "Conoce a CACHAÑANDO" Banner matching Reference Prototype -->
+  <div class="w-full mt-14 overflow-hidden border-t-2 border-[#1b3519]/20 shadow-xl">
     
-    <!-- Curved Header Banner Title -->
-    <div class="text-center py-6">
-      <h2 class="text-3xl sm:text-5xl font-black tracking-wide text-[#e76f51] uppercase drop-shadow-sm font-sans flex items-center justify-center gap-3">
-        <span>Conoce a</span>
-        <span class="text-4xl sm:text-6xl text-[#e65c00]">CACHAÑANDO</span>
-      </h2>
-      <p class="text-xl sm:text-2xl font-bold uppercase tracking-widest text-[#244421] mt-1">
-        El Juego de Chile
-      </p>
+    <!-- Top Pattern Header Section -->
+    <div 
+      class="relative bg-[#d1e6b3] pt-8 pb-6 px-4 overflow-hidden"
+      style={`background-image: url('${tramaBg.src}'); background-size: 380px auto; background-repeat: repeat;`}
+    >
+      <div class="max-w-5xl mx-auto text-center relative z-10">
+        
+        <!-- "Conoce a" -->
+        <p class="text-2xl sm:text-3xl md:text-4xl font-sans font-extrabold text-[#22471d] mb-1 tracking-tight">
+          Conoce a
+        </p>
+
+        <!-- Arched SVG Title "CACHAÑANDO" -->
+        <div class="relative w-full max-w-4xl mx-auto -my-2 sm:-my-4">
+          <svg viewBox="0 0 1000 160" class="w-full h-auto overflow-visible select-none drop-shadow-md">
+            <defs>
+              <path id="arch-curve" d="M 40 145 Q 500 25 960 145" />
+            </defs>
+            <!-- Outline stroke -->
+            <text font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="105" fill="none" stroke="#1b3519" stroke-width="12" stroke-linejoin="round" letter-spacing="4">
+              <textPath href="#arch-curve" startOffset="50%" text-anchor="middle">
+                CACHAÑANDO
+              </textPath>
+            </text>
+            <!-- Orange fill -->
+            <text font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="105" fill="#f25c05" letter-spacing="4">
+              <textPath href="#arch-curve" startOffset="50%" text-anchor="middle">
+                CACHAÑANDO
+              </textPath>
+            </text>
+          </svg>
+        </div>
+
+        <!-- Center Image of Two Cachañas perched on branch overlapping title & separating EL JUEGO / DE CHILE -->
+        <div class="relative flex flex-col items-center justify-center -mt-10 sm:-mt-16 md:-mt-24">
+          
+          <!-- Cutout Image of Two Cachañas -->
+          <div class="w-48 sm:w-64 md:w-80 h-auto z-20 pointer-events-none drop-shadow-2xl">
+            <Image 
+              src={cachanasImg} 
+              alt="Pareja de Cachañas ilustradas" 
+              class="w-full h-auto object-contain mx-auto"
+            />
+          </div>
+
+          <!-- EL JUEGO ... DE CHILE Subtitle -->
+          <div class="w-full max-w-3xl flex justify-between items-center -mt-12 sm:-mt-16 md:-mt-20 px-4 sm:px-12 z-10 font-extrabold text-2xl sm:text-4xl md:text-5xl uppercase tracking-widest text-[#22471d]">
+            <span>EL JUEGO</span>
+            <span>DE CHILE</span>
+          </div>
+
+        </div>
+
+      </div>
     </div>
 
-    <!-- Photo Background Banner with 3 Overlay Cards -->
-    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#244421]/20">
+    <!-- Bottom Photo & 3 Overlay Cards Section -->
+    <div class="relative w-full overflow-hidden bg-emerald-950 border-t border-[#1b3519]/30">
       
       <!-- Background Photo -->
       <Image 
         src={cachanaPhotoBg} 
-        alt="Aves Cachañas en Hábitat Natural" 
-        class="w-full h-full object-cover min-h-[400px] brightness-90"
+        alt="Aves Cachañas en Árbol" 
+        class="w-full h-full object-cover min-h-[480px] sm:min-h-[520px] brightness-95"
       />
 
       <!-- Dark Gradient Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/20"></div>
 
       <!-- 3 Overlay Cards Grid -->
-      <div class="absolute inset-0 p-6 sm:p-10 flex items-end">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-white">
+      <div class="absolute inset-0 p-4 sm:p-8 md:p-10 flex items-end z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 w-full text-white text-center max-w-7xl mx-auto">
           
           <!-- Card 1 -->
-          <div class="bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-white/20">
-            <p class="text-xs sm:text-sm leading-relaxed">
-              El juego se compone de <strong>31 especies</strong> que albergan representantes de cada familia de aves en Chile. Cada ave ha sido seleccionada para familiarizar al jugador con la diversidad de nuestro patrimonio natural.
+          <div class="bg-black/60 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/20 shadow-2xl flex flex-col justify-center">
+            <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-white/95">
+              El juego se compone de <strong>31 especies</strong> que albergan representantes de cada familia de aves en Chile. Cada ave ha sido seleccionado para familiarizar al jugador con la diversidad de nuestro patrimonio natural.
             </p>
           </div>
 
           <!-- Card 2 -->
-          <div class="bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-white/20">
-            <p class="text-xs sm:text-sm leading-relaxed">
+          <div class="bg-black/60 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/20 shadow-2xl flex flex-col justify-center">
+            <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-white/95">
               Más que un juego, es una <strong>invitación a la pausa y al reconocimiento</strong> de nuestro patrimonio alado a través de la observación profunda y la memoria visual.
             </p>
           </div>
 
           <!-- Card 3 -->
-          <div class="bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-white/20 relative">
-            <p class="text-xs sm:text-sm leading-relaxed">
-              Las cachañas (<em>Enicognathus ferrugineus</em>) quienes le dan nombre a nuestro primer juego, se caracterizan por ser aves gregarias, bulliciosas y curiosas. Tal como las cachañas, este juego celebra la alegría vivida en cada partida.
+          <div class="bg-black/60 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/20 shadow-2xl flex flex-col justify-center">
+            <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-white/95">
+              Las cachañas (<em>Enicognathus ferrugineus</em>) Quienes le dan nombre a nuestro primer juego, se caracterizan por ser aves gregarias, bulliciosas y sobre todo curiosas.<br/><br/>
+              Como tal como las cachañas, este juego celebra la naturaleza gregaria del ser humano, el asombro compartido y la alegría vivida en cada partida.
             </p>
-            <span class="block text-[10px] text-amber-300 text-right mt-2 italic font-serif">
-              Foto: Gonzalo Flores
-            </span>
           </div>
 
         </div>
+      </div>
+
+      <!-- Gonzalo Flores Photo Credit -->
+      <div class="absolute bottom-2 right-4 z-20 text-[11px] sm:text-xs text-white/90 font-sans tracking-wide">
+        Gonzalo Flores
       </div>
 
     </div>
