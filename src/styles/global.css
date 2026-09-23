@@ -66,13 +66,45 @@ details[open] summary .faq-icon {
   animation: float 5s ease-in-out infinite;
 }
 
-/* Stamp Frame Effect for Hero Photo */
-.stamp-frame {
-  background: white;
-  padding: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  border: 12px solid white;
-  border-image: radial-gradient(transparent 0px, transparent 4px, white 5px) 12;
+/* Sage Green Postage Stamp Frame matching Image 2 */
+.stamp-sage-card {
+  background-color: #a4bd9c;
+  position: relative;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+/* Top and Bottom Deep Perforations */
+.stamp-sage-card::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  bottom: -9px;
+  left: 12px;
+  right: 12px;
+  background-image: 
+    radial-gradient(circle 9px at 12px 9px, #244421 8.5px, transparent 9px),
+    radial-gradient(circle 9px at 12px calc(100% - 9px), #244421 8.5px, transparent 9px);
+  background-size: 24px 100%;
+  background-repeat: repeat-x;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Left and Right Deep Perforations */
+.stamp-sage-card::after {
+  content: '';
+  position: absolute;
+  left: -9px;
+  right: -9px;
+  top: 12px;
+  bottom: 12px;
+  background-image: 
+    radial-gradient(circle 9px at 9px 12px, #244421 8.5px, transparent 9px),
+    radial-gradient(circle 9px at calc(100% - 9px) 12px, #244421 8.5px, transparent 9px);
+  background-size: 100% 24px;
+  background-repeat: repeat-y;
+  pointer-events: none;
+  z-index: 10;
 }
 
 /* Custom Scrollbar */
