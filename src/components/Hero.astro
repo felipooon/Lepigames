@@ -16,6 +16,8 @@ import badgeCart from '../assets/branding/badge-cart.png';
 import badgeHeart from '../assets/branding/badge-heart.png';
 import chilcoTrazo from '../assets/branding/chilco-trazo.png';
 import selloChilcoNaranja from '../assets/branding/sello-chilco-naranja.png';
+import estampilla from '../assets/branding/estampilla.png';
+import logoCachando from '../assets/branding/logo-cachando.png';
 
 import { SITE_CONFIG } from '../config/site';
 ---
@@ -92,38 +94,21 @@ import { SITE_CONFIG } from '../config/site';
 
   <!-- 3. Dark Green Section with Stamp Photo & Quote -->
   <div class="bg-[#244421] text-white py-14 px-4 sm:px-6 lg:px-8 shadow-xl mt-0">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
       
-      <!-- Left: Sage Postage Stamp Photo Frame & Orange Flor de Chilco Postmark Seal -->
-      <div class="md:col-span-5 flex justify-center py-2">
-        <div class="relative max-w-xs sm:max-w-sm md:max-w-md rotate-[-2deg] hover:rotate-0 transition-transform duration-300 p-2 filter drop-shadow-2xl">
-          
-          <!-- Light Sage Postage Stamp Outer Card -->
-          <div class="relative bg-[#a4bd9c] p-6 sm:p-7 stamp-sage-card">
-            <!-- White Inner Paper Frame -->
-            <div class="bg-white p-2.5 sm:p-3 shadow-md border border-amber-900/10">
-              <Image 
-                src={cartasImg} 
-                alt="Cartas Cachañando" 
-                class="w-full h-auto object-cover block"
-              />
-            </div>
-          </div>
-
-          <!-- Postal Stamp Seal: Orange Line Art with Flor de Chilco & Postmark Lines -->
-          <div class="absolute -bottom-6 -right-6 w-36 h-36 sm:w-44 sm:h-44 z-20 pointer-events-none transform rotate-[-4deg]">
-            <Image 
-              src={selloChilcoNaranja} 
-              alt="Sello Postal Flor de Chilco" 
-              class="w-full h-full object-contain drop-shadow-md"
-            />
-          </div>
-
+      <!-- Left: Transparent Stamp Image -->
+      <div class="md:col-span-6 flex justify-center py-2">
+        <div class="relative w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl rotate-[-2deg] hover:rotate-0 transition-transform duration-300 filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)]">
+          <Image 
+            src={estampilla} 
+            alt="Estampilla Lëpigames" 
+            class="w-full h-auto object-contain block"
+          />
         </div>
       </div>
 
       <!-- Right: Main Quote Banner -->
-      <div class="md:col-span-7 text-center md:text-left space-y-4">
+      <div class="md:col-span-6 text-center md:text-left space-y-4">
         <blockquote class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-emerald-50 leading-tight">
           "No se puede amar lo que no se conoce, ni defender lo que no se ama."
         </blockquote>
@@ -150,36 +135,24 @@ import { SITE_CONFIG } from '../config/site';
   <div class="w-full my-12 px-4 overflow-hidden relative">
     <div class="max-w-6xl mx-auto text-center relative z-10 flex flex-col items-center">
       
-      <!-- 1. Top Subtitle: "Conoce a" (Moderate spacing above CACHAÑANDO) -->
-      <div class="mb-4 sm:mb-6 z-20 relative">
+      <!-- 1. Top Subtitle: "Conoce a" (Positioned snug above logo) -->
+      <div class="-mb-3 sm:-mb-6 md:-mb-9 z-20 relative">
         <p class="text-2xl sm:text-4xl font-serif font-bold text-[#1b3519] tracking-tight">
           Conoce a
         </p>
       </div>
 
-      <!-- 2. Main Title: "CACHAÑANDO" Arched SVG Title -->
-      <div class="relative w-full max-w-4xl mx-auto z-10">
-        <svg viewBox="0 0 1000 150" class="w-full h-auto overflow-visible select-none drop-shadow-md">
-          <defs>
-            <path id="arch-curve-hero-5" d="M 40 130 Q 500 25 960 130" />
-          </defs>
-          <!-- Dark outline stroke -->
-          <text font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="105" fill="none" stroke="#1b3519" stroke-width="12" stroke-linejoin="round" letter-spacing="4">
-            <textPath href="#arch-curve-hero-5" startOffset="50%" text-anchor="middle">
-              CACHAÑANDO
-            </textPath>
-          </text>
-          <!-- Vibrant Orange fill -->
-          <text font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="105" fill="#f25c05" letter-spacing="4">
-            <textPath href="#arch-curve-hero-5" startOffset="50%" text-anchor="middle">
-              CACHAÑANDO
-            </textPath>
-          </text>
-        </svg>
+      <!-- 2. Main Title Logo Image: Logocachañando.png -->
+      <div class="relative w-full max-w-3xl sm:max-w-4xl md:max-w-5xl mx-auto z-10 px-2">
+        <Image 
+          src={logoCachando} 
+          alt="Cachañando - El Juego de las Aves de Chile" 
+          class="w-full h-auto object-contain mx-auto drop-shadow-md"
+        />
       </div>
 
-      <!-- 3. GIANT PROTAGONIST BIRD IMAGE (EVEN LARGER & SITTING JUST UNDER THE CURVE OF CACHAÑANDO) -->
-      <div class="relative max-w-2xl sm:max-w-4xl md:max-w-5xl lg:max-w-6xl mx-auto -mt-12 sm:-mt-24 md:-mt-36 lg:-mt-44 z-10 pointer-events-none">
+      <!-- 3. GIANT PROTAGONIST BIRD IMAGE (SITTING JUST UNDER LOGO CACHAÑANDO) -->
+      <div class="relative max-w-2xl sm:max-w-4xl md:max-w-5xl lg:max-w-6xl mx-auto -mt-8 sm:-mt-16 md:-mt-24 lg:-mt-32 z-10 pointer-events-none">
         <Image 
           src={cachanasImg} 
           alt="Pareja de Cachañas en rama - Protagonistas del juego" 
