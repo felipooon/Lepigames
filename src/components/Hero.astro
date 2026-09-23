@@ -134,79 +134,75 @@ import { SITE_CONFIG } from '../config/site';
     </div>
   </div>
 
-  <!-- 4. Playful "Conoce a CACHAÑANDO" Banner - Harmonious Layout -->
-  <div 
-    class="w-full my-12 py-16 px-4 overflow-hidden relative bg-gradient-to-b from-[#fcfbf7] via-[#d6eaaf] to-[#fcfbf7]"
-    style={`background-image: url('${tramaBg.src}'); background-size: 380px auto; background-repeat: repeat;`}
-  >
-    <!-- Soft Vignette Overlay to blend pattern smoothly into page top/bottom -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#fcfbf7] via-[#d6eaaf]/80 to-[#fcfbf7] mix-blend-overlay"></div>
-
-    <div class="max-w-6xl mx-auto text-center relative z-10 space-y-4">
+  <!-- 4. Playful "Conoce a CACHAÑANDO" Banner - Moderate Spacing & Semi-Transparent Slogan Card -->
+  <div class="w-full my-12 px-4 overflow-hidden relative">
+    <div class="max-w-6xl mx-auto text-center relative z-10 flex flex-col items-center">
       
-      <!-- 1. Top Subtitle: "Conoce a" (Spaced cleanly without collisions) -->
-      <div>
+      <!-- 1. Top Subtitle: "Conoce a" (Moderate spacing above CACHAÑANDO) -->
+      <div class="mb-4 sm:mb-6 z-20 relative">
         <p class="text-2xl sm:text-4xl font-serif font-bold text-[#1b3519] tracking-tight">
           Conoce a
         </p>
       </div>
 
       <!-- 2. Main Title: "CACHAÑANDO" Arched SVG Title -->
-      <div class="relative w-full max-w-4xl mx-auto py-1">
+      <div class="relative w-full max-w-4xl mx-auto z-10">
         <svg viewBox="0 0 1000 150" class="w-full h-auto overflow-visible select-none drop-shadow-md">
           <defs>
-            <path id="arch-curve-hero-3" d="M 40 130 Q 500 25 960 130" />
+            <path id="arch-curve-hero-5" d="M 40 130 Q 500 25 960 130" />
           </defs>
           <!-- Dark outline stroke -->
           <text font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="105" fill="none" stroke="#1b3519" stroke-width="12" stroke-linejoin="round" letter-spacing="4">
-            <textPath href="#arch-curve-hero-3" startOffset="50%" text-anchor="middle">
+            <textPath href="#arch-curve-hero-5" startOffset="50%" text-anchor="middle">
               CACHAÑANDO
             </textPath>
           </text>
           <!-- Vibrant Orange fill -->
           <text font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="105" fill="#f25c05" letter-spacing="4">
-            <textPath href="#arch-curve-hero-3" startOffset="50%" text-anchor="middle">
+            <textPath href="#arch-curve-hero-5" startOffset="50%" text-anchor="middle">
               CACHAÑANDO
             </textPath>
           </text>
         </svg>
       </div>
 
-      <!-- 3. Subtitle Phrase: "EL JUEGO DE AVES DE CHILE" (Clean, fully readable) -->
-      <div class="pt-1 pb-2">
-        <p class="text-xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-widest text-[#22471d] drop-shadow-xs">
-          EL JUEGO DE AVES DE CHILE
-        </p>
-      </div>
-
-      <!-- 4. GIANT PROTAGONIST BIRD IMAGE (HUGE, CENTERED & HARMONIOUS) -->
-      <div class="relative max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto py-2 z-20">
+      <!-- 3. GIANT PROTAGONIST BIRD IMAGE (EVEN LARGER & SITTING JUST UNDER THE CURVE OF CACHAÑANDO) -->
+      <div class="relative max-w-2xl sm:max-w-4xl md:max-w-5xl lg:max-w-6xl mx-auto -mt-12 sm:-mt-24 md:-mt-36 lg:-mt-44 z-10 pointer-events-none">
         <Image 
           src={cachanasImg} 
           alt="Pareja de Cachañas en rama - Protagonistas del juego" 
-          class="w-full h-auto object-contain mx-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.25)] hover:scale-[1.02] transition-transform duration-300 pointer-events-none"
+          class="w-full h-auto object-contain mx-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.2)]"
         />
       </div>
 
-      <!-- 5. 3 Informative Cards (Matching the site's warm palette) -->
-      <div class="pt-6 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-[#1b3519] text-center max-w-6xl mx-auto relative z-20">
+      <!-- 4. Subtitle Phrase / Slogan in Semi-Transparent Card Badge -->
+      <div class="-mt-16 sm:-mt-28 md:-mt-40 lg:-mt-48 mb-8 z-20 relative">
+        <div class="inline-flex items-center gap-2 bg-[#1b3519]/85 backdrop-blur-md px-6 sm:px-8 py-3 rounded-full border border-emerald-500/30 shadow-xl">
+          <p class="text-base sm:text-2xl md:text-3xl font-black uppercase tracking-widest text-amber-300">
+            EL JUEGO DE LAS AVES DE CHILE
+          </p>
+        </div>
+      </div>
+
+      <!-- 5. 3 Informative Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 text-[#1b3519] text-center max-w-6xl mx-auto relative z-20 w-full">
         
         <!-- Column 1 -->
-        <div class="bg-white/85 backdrop-blur-md p-7 sm:p-8 rounded-3xl border border-[#2b4f25]/20 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
+        <div class="bg-white/95 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-[#2b4f25]/20 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
           <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
             El juego se compone de <strong class="text-[#2b4f25] font-bold">31 especies</strong> que albergan representantes de cada familia de aves en Chile. Cada ave ha sido seleccionada para familiarizar al jugador con la diversidad de nuestro patrimonio natural.
           </p>
         </div>
 
         <!-- Column 2 -->
-        <div class="bg-white/85 backdrop-blur-md p-7 sm:p-8 rounded-3xl border border-[#2b4f25]/20 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
+        <div class="bg-white/95 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-[#2b4f25]/20 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
           <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
             Más que un juego, es una <strong class="text-[#2b4f25] font-bold">invitación a la pausa y al reconocimiento</strong> de nuestro patrimonio alado a través de la observación profunda y la memoria visual.
           </p>
         </div>
 
         <!-- Column 3 -->
-        <div class="bg-white/85 backdrop-blur-md p-7 sm:p-8 rounded-3xl border border-[#2b4f25]/20 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
+        <div class="bg-white/95 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-[#2b4f25]/20 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
           <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
             Las cachañas (<em>Enicognathus ferrugineus</em>) quienes le dan nombre a nuestro primer juego, se caracterizan por ser aves gregarias, bulliciosas y sobre todo curiosas.<br/><br/>
             Tal como las cachañas, este juego celebra la naturaleza gregaria del ser humano, el asombro compartido y la alegría vivida en cada partida.
