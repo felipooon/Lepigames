@@ -249,7 +249,7 @@ export const BIRD_SPECIES: BirdSpecies[] = [
 export const FAQS = [
   {
     question: "¿Hacen despachos a todo Chile y cómo es el envío?",
-    answer: "¡Sí! Despachamos a todas las regiones de Chile a través de Starken, Chilexpress o Correos de Chile. Una vez realizado tu pedido en Mercado Pago, nos pondremos en contacto vía WhatsApp o correo para enviar tu código de seguimiento."
+    answer: "¡Sí! Despachamos a todas las regiones de Chile a través de Starken, Chilexpress o Correos de Chile. Una vez realizado tu pedido, nos pondremos en contacto vía WhatsApp o correo para enviar tu código de seguimiento."
   },
   {
     question: "¿Cuáles son los tiempos de entrega estimados?",
@@ -257,7 +257,7 @@ export const FAQS = [
   },
   {
     question: "¿Qué medios de pago aceptan?",
-    answer: "Aceptamos todas las tarjetas de débito (Redcompra), crédito (hasta en cuotas) y dinero en cuenta mediante la pasarela segura de Mercado Pago. También puedes coordinar transferencia directa si lo prefieres vía WhatsApp."
+    answer: "Aceptamos todas las tarjetas de débito, crédito y transferencia bancaria directa a coordinar vía WhatsApp."
   },
   {
     question: "¿Para qué edades está recomendado Cachañando?",
