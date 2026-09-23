@@ -12,6 +12,7 @@ export const SITE_CONFIG = {
   slogan: "No se puede amar lo que no se conoce, ni defender lo que no se ama.",
   author: "María de los Ángeles",
   location: "Región de Los Lagos, Chile",
+  email: "contacto@lepigames.cl",
   mercadoPagoUrl: "https://mpago.la/tu-link-aqui", // URL parametrizable de checkout
   whatsAppNumber: "+56912345678", // Parametrizable
   whatsAppMessage: "¡Hola Lëpigames! Quisiera consultar sobre el juego Cachañando o coordinar un despacho.",
