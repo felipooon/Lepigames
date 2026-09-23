@@ -97,17 +97,17 @@ const speciesList = await Promise.all(
   <!-- Interactive Lightbox Modal -->
   <div
     id="bird-modal"
-    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-sm transition-opacity"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm transition-opacity overflow-y-auto"
     role="dialog"
     aria-modal="true"
   >
-    <div class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-emerald-900/20 transform transition-all scale-95 opacity-0 modal-content">
+    <div class="relative bg-white rounded-3xl max-w-lg w-full p-4 sm:p-7 shadow-2xl border border-emerald-900/20 transform transition-all scale-95 opacity-0 modal-content my-auto max-h-[92vh] flex flex-col overflow-y-auto">
       
       <!-- Close Button -->
       <button
         id="modal-close"
         type="button"
-        class="absolute top-4 right-4 p-2 rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+        class="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors z-20"
         aria-label="Cerrar modal"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -116,30 +116,32 @@ const speciesList = await Promise.all(
       </button>
 
       <!-- Modal Content -->
-      <div class="text-center">
+      <div class="text-center flex flex-col h-full">
         <!-- Enlarged Image -->
-        <div class="relative max-w-xs mx-auto aspect-4/5 rounded-2xl overflow-hidden bg-[#e5ebd9]/50 border border-emerald-900/10 shadow-md mb-4 flex items-center justify-center">
-          <img id="modal-img" src="" alt="" class="w-full h-full object-contain p-3" />
+        <div class="relative max-w-[180px] sm:max-w-xs mx-auto aspect-4/5 rounded-2xl overflow-hidden bg-[#e5ebd9]/50 border border-emerald-900/10 shadow-md mb-3 flex items-center justify-center shrink-0 max-h-40 sm:max-h-56">
+          <img id="modal-img" src="" alt="" class="w-full h-full object-contain p-2 sm:p-3" />
         </div>
 
-        <span id="modal-tag" class="inline-block px-3 py-1 rounded-full bg-[#35592f] text-white font-bold text-xs uppercase tracking-wider mb-2"></span>
-        <h3 id="modal-title" class="text-2xl font-serif font-bold text-[#1b3519]"></h3>
-        <p id="modal-scientific" class="text-sm italic font-serif text-[#2b4f25] mb-1"></p>
-        <p id="modal-family" class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4"></p>
+        <div class="shrink-0">
+          <span id="modal-tag" class="inline-block px-3 py-0.5 sm:py-1 rounded-full bg-[#35592f] text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider mb-1.5"></span>
+          <h3 id="modal-title" class="text-xl sm:text-2xl font-serif font-bold text-[#1b3519] leading-tight"></h3>
+          <p id="modal-scientific" class="text-xs sm:text-sm italic font-serif text-[#2b4f25] mb-0.5"></p>
+          <p id="modal-family" class="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3"></p>
+        </div>
 
         <!-- Species Description Card -->
-        <div class="bg-[#85a67c]/15 border border-[#85a67c]/30 rounded-2xl p-4 text-left mb-4 shadow-xs max-h-48 overflow-y-auto">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-[#2b4f25] mb-1.5 flex items-center gap-1.5">
-            <span>🪶</span> Ficha Técnica & Descripción
+        <div class="bg-[#85a67c]/15 border border-[#85a67c]/30 rounded-2xl p-3 sm:p-4 text-left mb-3 shadow-xs max-h-32 sm:max-h-44 overflow-y-auto shrink">
+          <h4 class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#2b4f25] mb-1 flex items-center gap-1.5">
+            <span>🪶</span> Descripción
           </h4>
           <p id="modal-description" class="text-xs sm:text-sm text-[#1b3519] leading-relaxed font-sans font-normal"></p>
         </div>
 
-        <div class="mt-6 pt-3 border-t border-gray-100 flex justify-end">
+        <div class="pt-2 sm:pt-3 border-t border-gray-100 flex justify-end shrink-0 mt-auto">
           <button
             id="modal-btn-close"
             type="button"
-            class="px-5 py-2 rounded-full bg-[#2b4f25] hover:bg-[#203c1b] text-white font-bold text-xs transition-colors"
+            class="w-full sm:w-auto px-6 py-2.5 rounded-full bg-[#2b4f25] hover:bg-[#203c1b] text-white font-bold text-xs transition-colors cursor-pointer text-center"
           >
             Cerrar vista
           </button>
