@@ -47,41 +47,41 @@ import { SITE_CONFIG } from '../config/site';
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 items-center">
         
         <!-- Badge 1: Bird Sketch Icon - Region de Los Lagos -->
-        <div class="flex items-center gap-3.5 sm:gap-4 px-1 sm:px-2">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 sm:border-[4.5px] border-[#1b3519] bg-[#d1eaab] p-2.5 sm:p-3 flex items-center justify-center shrink-0 shadow-lg">
-            <Image src={badgeBird} alt="Pajarito Trazo" class="w-full h-full object-contain" />
+        <div class="group flex items-center gap-3.5 sm:gap-4 px-1 sm:px-2">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full border-4 sm:border-[5px] border-[#1b3519] ring-4 ring-[#1b3519]/20 bg-gradient-to-br from-[#ebf8d7] to-[#c2ea95] p-1.5 sm:p-2 flex items-center justify-center shrink-0 shadow-[0_8px_20px_rgba(0,0,0,0.3),0_0_15px_rgba(209,234,171,0.5)] group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.4),0_0_25px_rgba(209,234,171,0.85)] group-hover:scale-105 transition-all duration-300 ease-out">
+            <Image src={badgeBird} alt="Pajarito Trazo" class="w-full h-full object-contain transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 ease-out drop-shadow-[0_2px_4px_rgba(27,53,25,0.2)]" />
           </div>
-          <span class="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
+          <span class="text-white font-extrabold text-sm sm:text-base lg:text-lg leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] group-hover:text-amber-200 transition-colors">
             Hecho en la Región de Los Lagos, Chile.
           </span>
         </div>
 
         <!-- Badge 2: Paper Airplane Sketch Icon - Enviamos a todo Chile -->
-        <div class="flex items-center gap-3.5 sm:gap-4 px-1 sm:px-2">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 sm:border-[4.5px] border-[#1b3519] bg-[#d1eaab] p-2.5 sm:p-3 flex items-center justify-center shrink-0 shadow-lg">
-            <Image src={badgePlane} alt="Avioncito Trazo" class="w-full h-full object-contain" />
+        <div class="group flex items-center gap-3.5 sm:gap-4 px-1 sm:px-2">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full border-4 sm:border-[5px] border-[#1b3519] ring-4 ring-[#1b3519]/20 bg-gradient-to-br from-[#ebf8d7] to-[#c2ea95] p-1.5 sm:p-2 flex items-center justify-center shrink-0 shadow-[0_8px_20px_rgba(0,0,0,0.3),0_0_15px_rgba(209,234,171,0.5)] group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.4),0_0_25px_rgba(209,234,171,0.85)] group-hover:scale-105 transition-all duration-300 ease-out">
+            <Image src={badgePlane} alt="Avioncito Trazo" class="w-full h-full object-contain transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 ease-out drop-shadow-[0_2px_4px_rgba(27,53,25,0.2)]" />
           </div>
-          <span class="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
+          <span class="text-white font-extrabold text-sm sm:text-base lg:text-lg leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] group-hover:text-amber-200 transition-colors">
             Enviamos a todo Chile
           </span>
         </div>
 
         <!-- Badge 3: Shopping Cart Shield Sketch Icon - Compra segura -->
-        <div class="flex items-center gap-3.5 sm:gap-4 px-1 sm:px-2">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 sm:border-[4.5px] border-[#1b3519] bg-[#d1eaab] p-2 sm:p-2.5 flex items-center justify-center shrink-0 shadow-lg">
-            <Image src={badgeCart} alt="Carrito Escudo Trazo" class="w-full h-full object-contain" />
+        <div class="group flex items-center gap-3.5 sm:gap-4 px-1 sm:px-2">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full border-4 sm:border-[5px] border-[#1b3519] ring-4 ring-[#1b3519]/20 bg-gradient-to-br from-[#ebf8d7] to-[#c2ea95] p-1.5 sm:p-2 flex items-center justify-center shrink-0 shadow-[0_8px_20px_rgba(0,0,0,0.3),0_0_15px_rgba(209,234,171,0.5)] group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.4),0_0_25px_rgba(209,234,171,0.85)] group-hover:scale-105 transition-all duration-300 ease-out">
+            <Image src={badgeCart} alt="Carrito Escudo Trazo" class="w-full h-full object-contain transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 ease-out drop-shadow-[0_2px_4px_rgba(27,53,25,0.2)]" />
           </div>
-          <span class="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
+          <span class="text-white font-extrabold text-sm sm:text-base lg:text-lg leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] group-hover:text-amber-200 transition-colors">
             Compra segura
           </span>
         </div>
 
         <!-- Badge 4: Heart Sketch Icon - Hecho con Amor -->
-        <div class="flex items-center gap-3.5 sm:gap-4 px-1 sm:px-2">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 sm:border-[4.5px] border-[#1b3519] bg-[#d1eaab] p-2.5 sm:p-3 flex items-center justify-center shrink-0 shadow-lg">
-            <Image src={badgeHeart} alt="Corazón Trazo" class="w-full h-full object-contain" />
+        <div class="group flex items-center gap-3.5 sm:gap-4 px-1 sm:px-2">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full border-4 sm:border-[5px] border-[#1b3519] ring-4 ring-[#1b3519]/20 bg-gradient-to-br from-[#ebf8d7] to-[#c2ea95] p-1.5 sm:p-2 flex items-center justify-center shrink-0 shadow-[0_8px_20px_rgba(0,0,0,0.3),0_0_15px_rgba(209,234,171,0.5)] group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.4),0_0_25px_rgba(209,234,171,0.85)] group-hover:scale-105 transition-all duration-300 ease-out">
+            <Image src={badgeHeart} alt="Corazón Trazo" class="w-full h-full object-contain transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 ease-out drop-shadow-[0_2px_4px_rgba(27,53,25,0.2)]" />
           </div>
-          <span class="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
+          <span class="text-white font-extrabold text-sm sm:text-base lg:text-lg leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] group-hover:text-amber-200 transition-colors">
             Hecho con Amor
           </span>
         </div>

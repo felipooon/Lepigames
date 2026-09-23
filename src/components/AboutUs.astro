@@ -1,145 +1,192 @@
 ---
-import { Image } from 'astro:assets';
-import papelBg from '../assets/branding/papel.png';
-import plumaTrazo from '../assets/branding/pluma-trazo.png';
-import { SITE_CONFIG } from '../config/site';
+import { Image } from "astro:assets";
+import papelBg from "../assets/branding/papel.png";
+import plumaTrazo from "../assets/branding/pluma-trazo.png";
+import { SITE_CONFIG } from "../config/site";
 
 // Independent Photos from Nuestra Historia
-import imgWall from '../assets/history/Sitio WEB_PC (2).png';
-import imgArtist from '../assets/history/Sitio WEB_PC (3).png';
-import imgEasel from '../assets/history/Sitio WEB_PC (4).png';
-import imgPainting from '../assets/history/Sitio WEB_PC (5).png';
+import imgWall from "../assets/history/Sitio WEB_PC (2).png";
+import imgArtist from "../assets/history/Sitio WEB_PC (3).png";
+import imgEasel from "../assets/history/Sitio WEB_PC (4).png";
+import imgPainting from "../assets/history/Sitio WEB_PC (5).png";
 
 // Bird Cutouts for 3D Collage Effect
-import birdCachana from '../assets/history/Cachaña.png';
-import birdChucao from '../assets/history/Chucao.png';
-import birdPicaflor from '../assets/history/Picaflor.png';
-import birdPilpilen from '../assets/history/Pilpilen.png';
+import birdCachana from "../assets/history/Cachaña.png";
+import birdChucao from "../assets/history/Chucao.png";
+import birdPicaflor from "../assets/history/Picaflor.png";
+import birdPilpilen from "../assets/history/Pilpilen.png";
 ---
 
-<section 
-  id="nosotros" 
+<section
+  id="nosotros"
   class="w-full py-16 sm:py-24 relative border-y border-[#2b4f25]/15 shadow-inner overflow-hidden"
   style={`background-image: url('${papelBg.src}'); background-size: cover; background-position: center;`}
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
-    
     <!-- 1. Nuestra Historia Block -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-      
       <!-- Left Column: Custom Dynamic Photo & Bird Cutouts Collage (Larger) -->
       <div class="md:col-span-6 relative flex justify-center py-8 px-4">
-        
-        <div class="relative w-full max-w-xl lg:max-w-2xl p-3.5 bg-white/75 backdrop-blur-xs rounded-3xl border-2 border-white/90 shadow-2xl">
-          
+        <div
+          class="relative w-full max-w-xl lg:max-w-2xl p-3.5 bg-white/75 backdrop-blur-xs rounded-3xl border-2 border-white/90 shadow-2xl"
+        >
           <!-- 4-Photo Grid Container -->
-          <div class="grid grid-cols-2 gap-3.5 rounded-2xl overflow-hidden bg-[#1b3519]/5 p-2.5">
-            
+          <div
+            class="grid grid-cols-2 gap-3.5 rounded-2xl overflow-hidden bg-[#1b3519]/5 p-2.5"
+          >
             <!-- Photo 1: Close-up painting -->
-            <div class="rounded-xl overflow-hidden border-2 border-white shadow-md hover:scale-[1.02] transition-transform duration-300">
-              <Image 
-                src={imgPainting} 
-                alt="Pintando ave en acrílico" 
+            <div
+              class="rounded-xl overflow-hidden border-2 border-white shadow-md hover:scale-[1.02] transition-transform duration-300"
+            >
+              <Image
+                src={imgPainting}
+                alt="Pintando ave en acrílico"
                 class="w-full h-44 sm:h-52 md:h-56 lg:h-60 object-cover"
               />
             </div>
 
             <!-- Photo 2: Gallery exhibition wall -->
-            <div class="rounded-xl overflow-hidden border-2 border-white shadow-md hover:scale-[1.02] transition-transform duration-300">
-              <Image 
-                src={imgWall} 
-                alt="Exposición De Plumas, Sal y Mar en Galería" 
+            <div
+              class="rounded-xl overflow-hidden border-2 border-white shadow-md hover:scale-[1.02] transition-transform duration-300"
+            >
+              <Image
+                src={imgWall}
+                alt="Exposición De Plumas, Sal y Mar en Galería"
                 class="w-full h-44 sm:h-52 md:h-56 lg:h-60 object-cover"
               />
             </div>
 
             <!-- Photo 3: Framed painting on easel -->
-            <div class="rounded-xl overflow-hidden border-2 border-white shadow-md hover:scale-[1.02] transition-transform duration-300">
-              <Image 
-                src={imgEasel} 
-                alt="Cuadro de Cachaña en atril" 
+            <div
+              class="rounded-xl overflow-hidden border-2 border-white shadow-md hover:scale-[1.02] transition-transform duration-300"
+            >
+              <Image
+                src={imgEasel}
+                alt="Cuadro de Cachaña en atril"
                 class="w-full h-44 sm:h-52 md:h-56 lg:h-60 object-cover"
               />
             </div>
 
             <!-- Photo 4: Artist working -->
-            <div class="rounded-xl overflow-hidden border-2 border-white shadow-md hover:scale-[1.02] transition-transform duration-300">
-              <Image 
-                src={imgArtist} 
-                alt="Fundadora María de los Ángeles pintando" 
+            <div
+              class="rounded-xl overflow-hidden border-2 border-white shadow-md hover:scale-[1.02] transition-transform duration-300"
+            >
+              <Image
+                src={imgArtist}
+                alt="Fundadora María de los Ángeles pintando"
                 class="w-full h-44 sm:h-52 md:h-56 lg:h-60 object-cover"
               />
             </div>
-
           </div>
 
           <!-- Overlapping Bird Cutouts (Floating 3D Collage Effect) -->
           <!-- Bird 1: Cachaña (Top Left) -->
-          <div class="absolute -top-9 -left-8 w-32 sm:w-44 md:w-48 z-20 pointer-events-none drop-shadow-[0_14px_24px_rgba(0,0,0,0.38)] transform -rotate-6">
-            <Image src={birdCachana} alt="Cachaña Ilustración" class="w-full h-auto object-contain" />
+          <div
+            class="absolute -top-9 -left-8 w-32 sm:w-44 md:w-48 z-20 pointer-events-none drop-shadow-[0_14px_24px_rgba(0,0,0,0.38)] transform -rotate-6"
+          >
+            <Image
+              src={birdCachana}
+              alt="Cachaña Ilustración"
+              class="w-full h-auto object-contain"
+            />
           </div>
 
           <!-- Bird 2: Chucao (Center Overlap) -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 sm:w-36 md:w-40 z-30 pointer-events-none drop-shadow-[0_12px_20px_rgba(0,0,0,0.45)] transform rotate-3">
-            <Image src={birdChucao} alt="Chucao Ilustración" class="w-full h-auto object-contain" />
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 sm:w-36 md:w-40 z-30 pointer-events-none drop-shadow-[0_12px_20px_rgba(0,0,0,0.45)] transform rotate-3"
+          >
+            <Image
+              src={birdChucao}
+              alt="Chucao Ilustración"
+              class="w-full h-auto object-contain"
+            />
           </div>
 
           <!-- Bird 3: Pilpilén (Top Right) -->
-          <div class="absolute -top-8 -right-6 w-28 sm:w-36 md:w-40 z-20 pointer-events-none drop-shadow-[0_12px_18px_rgba(0,0,0,0.3)] transform rotate-12">
-            <Image src={birdPilpilen} alt="Pilpilén Ilustración" class="w-full h-auto object-contain" />
+          <div
+            class="absolute -top-8 -right-6 w-28 sm:w-36 md:w-40 z-20 pointer-events-none drop-shadow-[0_12px_18px_rgba(0,0,0,0.3)] transform rotate-12"
+          >
+            <Image
+              src={birdPilpilen}
+              alt="Pilpilén Ilustración"
+              class="w-full h-auto object-contain"
+            />
           </div>
 
           <!-- Bird 4: Picaflor (Bottom Right) -->
-          <div class="absolute -bottom-9 -right-8 w-32 sm:w-44 md:w-48 z-20 pointer-events-none drop-shadow-[0_14px_24px_rgba(0,0,0,0.38)] transform -rotate-12">
-            <Image src={birdPicaflor} alt="Picaflor Ilustración" class="w-full h-auto object-contain" />
+          <div
+            class="absolute -bottom-9 -right-8 w-32 sm:w-44 md:w-48 z-20 pointer-events-none drop-shadow-[0_14px_24px_rgba(0,0,0,0.38)] transform -rotate-12"
+          >
+            <Image
+              src={birdPicaflor}
+              alt="Picaflor Ilustración"
+              class="w-full h-auto object-contain"
+            />
           </div>
-
         </div>
-
       </div>
 
       <!-- Right Column: Narrative Text -->
       <div class="md:col-span-6 space-y-5">
-        
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1b3519]">
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1b3519]"
+        >
           Nuestra Historia :
         </h2>
 
-        <div class="space-y-4 text-base sm:text-lg text-[#1b3519] font-serif leading-relaxed">
+        <div
+          class="space-y-4 text-base sm:text-lg text-[#1b3519] font-serif leading-relaxed"
+        >
           <p>
-            Cada ave fue pintada en la técnica acrílico como un proyecto paralelo y como medida para encauzar la ansiedad de la tesis de pregrado.
+            Cada ave fue pintada en la técnica acrílico como un proyecto
+            paralelo y como medida para encauzar la ansiedad de la tesis de
+            pregrado.
           </p>
           <p>
-            Nunca fueron pensadas para un juego, pero una semana después de la defensa de la tesis, se montó en Museo y Galería Bags Marine: <strong>‘De Plumas, Sal y Mar’</strong>, la serie de 32 pinturas de aves de Chile que le dieron vida al Juego Cachañando.
+            Las pinturas nunca fueron hechas para ser expuestas, pero una semana
+            después de la defensa de la tesis, se inauguró en el Museo y Galería
+            Bags Marine: <strong>‘De Plumas, Sal y Mar’</strong>, la serie de 32
+            pinturas de aves de Chile que le dieron vida al Juego Cachañando.
           </p>
           <p>
-            La exposición estuvo abierta al público de manera gratuita todo septiembre del 2025. En ese mismo mes, sale a la venta Cachañando.
+            La exposición estuvo abierta al público de manera gratuita todo
+            septiembre del 2025. En ese mismo mes, sale a la venta Cachañando.
           </p>
         </div>
 
         <!-- Founder Quote -->
-        <div class="p-6 rounded-2xl bg-white/90 border-l-4 border-[#35592f] shadow-lg backdrop-blur-xs mt-6">
-          <blockquote class="italic text-base sm:text-lg font-serif text-[#1b3519] leading-relaxed">
-            "Las pinturas llaman la atención y que tengan un propósito de fondo, materializado en algo simple y cercano como un juego de cartas, termina de cerrar el círculo de <strong>promover las especies de aves de Chile en pro de la conservación de ellas</strong>"
+        <div
+          class="p-6 rounded-2xl bg-white/90 border-l-4 border-[#35592f] shadow-lg backdrop-blur-xs mt-6"
+        >
+          <blockquote
+            class="italic text-base sm:text-lg font-serif text-[#1b3519] leading-relaxed"
+          >
+            "Las pinturas llaman la atención y que tengan un propósito de fondo,
+            materializado en algo simple y cercano como un juego de cartas,
+            termina de cerrar el círculo de <strong
+              >promover las especies de aves de Chile en pro de la conservación
+              de ellas</strong
+            >"
           </blockquote>
-          <span class="block mt-3 text-xs sm:text-sm font-bold text-[#35592f] uppercase tracking-wider">
+          <span
+            class="block mt-3 text-xs sm:text-sm font-bold text-[#35592f] uppercase tracking-wider"
+          >
             - María de los Ángeles, fundadora de Lëpigames
           </span>
         </div>
-
       </div>
-
     </div>
 
     <!-- 2. Lëpigames (Región de los Lagos) Block -->
-    <div class="pt-10 border-t border-[#2b4f25]/15 max-w-4xl mx-auto text-center space-y-6">
-      
+    <div
+      class="pt-10 border-t border-[#2b4f25]/15 max-w-4xl mx-auto text-center space-y-6"
+    >
       <!-- Title with Feather Stroke Accent -->
       <div class="inline-flex items-center justify-center gap-3.5">
-        <Image 
-          src={plumaTrazo} 
-          alt="Trazo de pluma" 
-          class="w-10 h-10 sm:w-14 sm:h-14 object-contain transform -rotate-12 drop-shadow-xs" 
+        <Image
+          src={plumaTrazo}
+          alt="Trazo de pluma"
+          class="w-10 h-10 sm:w-14 sm:h-14 object-contain transform -rotate-12 drop-shadow-xs"
         />
         <h2 class="text-3xl sm:text-5xl font-serif font-bold text-[#1b3519]">
           Lëpigames
@@ -150,23 +197,35 @@ import birdPilpilen from '../assets/history/Pilpilen.png';
       </div>
 
       <!-- Card Definition with Background Watermark Feather -->
-      <div class="p-8 sm:p-10 rounded-3xl bg-white/85 border border-[#2b4f25]/20 shadow-lg backdrop-blur-xs text-left sm:text-center space-y-4 max-w-3xl mx-auto relative overflow-hidden">
-        
+      <div
+        class="p-8 sm:p-10 rounded-3xl bg-white/85 border border-[#2b4f25]/20 shadow-lg backdrop-blur-xs text-left sm:text-center space-y-4 max-w-3xl mx-auto relative overflow-hidden"
+      >
         <!-- Feather stroke watermark in card corner -->
-        <div class="absolute -right-8 -bottom-8 opacity-20 pointer-events-none w-48 sm:w-60 transform rotate-12">
+        <div
+          class="absolute -right-8 -bottom-8 opacity-20 pointer-events-none w-48 sm:w-60 transform rotate-12"
+        >
           <Image src={plumaTrazo} alt="" class="w-full h-auto object-contain" />
         </div>
 
-        <p class="text-base sm:text-xl text-[#1b3519] font-serif leading-relaxed relative z-10">
-          Del mapudungun-huilliche, <strong class="text-[#2b4f25] font-bold">lëpi-</strong> ‘plumas’ + <strong class="text-[#2b4f25] font-bold">games</strong> del inglés, ‘juego’.<br/>
-          <em class="text-[#35592f] font-medium">Juego de plumas o juego de aves;</em>
+        <p
+          class="text-base sm:text-xl text-[#1b3519] font-serif leading-relaxed relative z-10"
+        >
+          Del mapudungun-huilliche, <strong class="text-[#2b4f25] font-bold"
+            >lëpi-</strong
+          > ‘plumas’ + <strong class="text-[#2b4f25] font-bold">games</strong> del
+          inglés, ‘juego’.<br />
+          <em class="text-[#35592f] font-medium"
+            >Juego de plumas o juego de aves;</em
+          >
         </p>
-        <p class="text-sm sm:text-base text-[#1b3519]/90 font-serif leading-relaxed relative z-10">
-          Busca representar la identidad territorial de la Región de Los Lagos a través de las aves, conectando con diferentes personas mediante el juego, el arte y la ciencia.
+        <p
+          class="text-sm sm:text-base text-[#1b3519]/90 font-serif leading-relaxed relative z-10"
+        >
+          Busca representar la identidad territorial de la Región de Los Lagos a
+          través de las aves, conectando con diferentes personas mediante el
+          juego, el arte y la ciencia.
         </p>
       </div>
-
     </div>
-
   </div>
 </section>
