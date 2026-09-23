@@ -53,6 +53,7 @@ const speciesList = await Promise.all(
           data-scientific={bird.scientificName}
           data-family={bird.family}
           data-tag={bird.tag || ''}
+          data-description={bird.description || ''}
           data-img-src={bird.imageConFondo ? bird.imageConFondo.src : ''}
         >
           <!-- Bird Illustration Container (Using sin-fondo / transparent PNG as PDF prototype) -->
@@ -100,7 +101,7 @@ const speciesList = await Promise.all(
     role="dialog"
     aria-modal="true"
   >
-    <div class="relative bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-emerald-900/20 transform transition-all scale-95 opacity-0 modal-content">
+    <div class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-emerald-900/20 transform transition-all scale-95 opacity-0 modal-content">
       
       <!-- Close Button -->
       <button
@@ -124,7 +125,15 @@ const speciesList = await Promise.all(
         <span id="modal-tag" class="inline-block px-3 py-1 rounded-full bg-[#35592f] text-white font-bold text-xs uppercase tracking-wider mb-2"></span>
         <h3 id="modal-title" class="text-2xl font-serif font-bold text-[#1b3519]"></h3>
         <p id="modal-scientific" class="text-sm italic font-serif text-[#2b4f25] mb-1"></p>
-        <p id="modal-family" class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3"></p>
+        <p id="modal-family" class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4"></p>
+
+        <!-- Species Description Card -->
+        <div class="bg-[#85a67c]/15 border border-[#85a67c]/30 rounded-2xl p-4 text-left mb-4 shadow-xs max-h-48 overflow-y-auto">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-[#2b4f25] mb-1.5 flex items-center gap-1.5">
+            <span>🪶</span> Ficha Técnica & Descripción
+          </h4>
+          <p id="modal-description" class="text-xs sm:text-sm text-[#1b3519] leading-relaxed font-sans font-normal"></p>
+        </div>
 
         <div class="mt-6 pt-3 border-t border-gray-100 flex justify-end">
           <button
@@ -167,6 +176,7 @@ const speciesList = await Promise.all(
   const modalTitle = document.getElementById('modal-title');
   const modalScientific = document.getElementById('modal-scientific');
   const modalFamily = document.getElementById('modal-family');
+  const modalDescription = document.getElementById('modal-description');
   const modalTag = document.getElementById('modal-tag');
   const modalClose = document.getElementById('modal-close');
   const modalBtnClose = document.getElementById('modal-btn-close');
@@ -176,6 +186,7 @@ const speciesList = await Promise.all(
     const scientific = card.getAttribute('data-scientific') || '';
     const family = card.getAttribute('data-family') || '';
     const tag = card.getAttribute('data-tag') || 'Ave de Chile';
+    const description = card.getAttribute('data-description') || 'Información detallada disponible en el juego de cartas.';
     const imgSrc = card.getAttribute('data-img-src') || '';
 
     if (modalImg) {
@@ -186,6 +197,7 @@ const speciesList = await Promise.all(
     if (modalScientific) modalScientific.textContent = scientific;
     if (modalFamily) modalFamily.textContent = family;
     if (modalTag) modalTag.textContent = tag;
+    if (modalDescription) modalDescription.textContent = description;
 
     modal?.classList.remove('hidden');
     modal?.classList.add('flex');

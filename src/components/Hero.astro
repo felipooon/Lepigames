@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import logoImg from '../assets/branding/logo.png';
 import cartasImg from '../assets/branding/cartas.png';
 import tejasImg from '../assets/branding/tejas.png';
-import cachanasImg from '../assets/branding/cachanas.png';
+import cachana1Img from '../assets/branding/cachana1.png';
 import tramaBg from '../assets/branding/trama-bg.png';
 import tramaFullVerde from '../assets/branding/trama-full-verde.png';
 import cachanaPhotoBg from '../assets/proto_crops/cachana-photo-bg.png';
@@ -151,46 +151,68 @@ import { SITE_CONFIG } from '../config/site';
         />
       </div>
 
-      <!-- 3. GIANT PROTAGONIST BIRD IMAGE (SITTING JUST UNDER LOGO CACHAÑANDO) -->
-      <div class="relative max-w-2xl sm:max-w-4xl md:max-w-5xl lg:max-w-6xl mx-auto -mt-8 sm:-mt-16 md:-mt-24 lg:-mt-32 z-10 pointer-events-none">
+      <!-- 3. PROTAGONIST BIRD IMAGE (REDUCED SIZE & GREATER TOP OVERLAP WITH LOGO) -->
+      <div class="relative max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto -mt-16 sm:-mt-24 md:-mt-36 lg:-mt-44 z-10 pointer-events-none">
         <Image 
-          src={cachanasImg} 
-          alt="Pareja de Cachañas en rama - Protagonistas del juego" 
-          class="w-full h-auto object-contain mx-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.2)]"
+          src={cachana1Img} 
+          alt="Cachaña - Protagonista del juego" 
+          class="w-full h-auto object-contain mx-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.2)]"
         />
       </div>
 
       <!-- 4. Subtitle Phrase / Slogan in Semi-Transparent Card Badge -->
-      <div class="-mt-16 sm:-mt-28 md:-mt-40 lg:-mt-48 mb-8 z-20 relative">
-        <div class="inline-flex items-center gap-2 bg-[#1b3519]/85 backdrop-blur-md px-6 sm:px-8 py-3 rounded-full border border-emerald-500/30 shadow-xl">
+      <div class="-mt-16 sm:-mt-20 md:-mt-28 lg:-mt-32 mb-6 sm:mb-8 z-20 relative">
+        <div class="inline-flex items-center gap-2 bg-[#1b3519]/90 backdrop-blur-md px-6 sm:px-8 py-3 rounded-full border border-emerald-500/30 shadow-xl">
           <p class="text-base sm:text-2xl md:text-3xl font-black uppercase tracking-widest text-amber-300">
             EL JUEGO DE LAS AVES DE CHILE
           </p>
         </div>
       </div>
 
-      <!-- 5. 3 Informative Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 text-[#1b3519] text-center max-w-6xl mx-auto relative z-20 w-full">
+      <!-- 5. 4 Informative Cards with subtle green pattern background & translucency -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 text-[#1b3519] text-center max-w-6xl mx-auto relative z-20 w-full -mt-2 sm:-mt-4">
         
         <!-- Column 1 -->
-        <div class="bg-white/95 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-[#2b4f25]/20 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
-          <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
+        <div class="relative overflow-hidden bg-white/80 backdrop-blur-md p-5 sm:p-6 rounded-3xl border border-[#2b4f25]/25 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center group">
+          <div 
+            class="absolute inset-0 bg-repeat bg-center opacity-20 mix-blend-multiply pointer-events-none rounded-3xl transition-opacity group-hover:opacity-30"
+            style={`background-image: url('${tramaFullVerde.src}'); background-size: 180px auto;`}
+          ></div>
+          <p class="relative z-10 text-xs sm:text-sm md:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
             El juego se compone de <strong class="text-[#2b4f25] font-bold">31 especies</strong> que albergan representantes de cada familia de aves en Chile. Cada ave ha sido seleccionada para familiarizar al jugador con la diversidad de nuestro patrimonio natural.
           </p>
         </div>
 
         <!-- Column 2 -->
-        <div class="bg-white/95 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-[#2b4f25]/20 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
-          <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
+        <div class="relative overflow-hidden bg-white/80 backdrop-blur-md p-5 sm:p-6 rounded-3xl border border-[#2b4f25]/25 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center group">
+          <div 
+            class="absolute inset-0 bg-repeat bg-center opacity-20 mix-blend-multiply pointer-events-none rounded-3xl transition-opacity group-hover:opacity-30"
+            style={`background-image: url('${tramaFullVerde.src}'); background-size: 180px auto;`}
+          ></div>
+          <p class="relative z-10 text-xs sm:text-sm md:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
             Más que un juego, es una <strong class="text-[#2b4f25] font-bold">invitación a la pausa y al reconocimiento</strong> de nuestro patrimonio alado a través de la observación profunda y la memoria visual.
           </p>
         </div>
 
         <!-- Column 3 -->
-        <div class="bg-white/95 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-[#2b4f25]/20 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center">
-          <p class="text-sm sm:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
-            Las cachañas (<em>Enicognathus ferrugineus</em>) quienes le dan nombre a nuestro primer juego, se caracterizan por ser aves gregarias, bulliciosas y sobre todo curiosas.<br/><br/>
-            Tal como las cachañas, este juego celebra la naturaleza gregaria del ser humano, el asombro compartido y la alegría vivida en cada partida.
+        <div class="relative overflow-hidden bg-white/80 backdrop-blur-md p-5 sm:p-6 rounded-3xl border border-[#2b4f25]/25 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center group">
+          <div 
+            class="absolute inset-0 bg-repeat bg-center opacity-20 mix-blend-multiply pointer-events-none rounded-3xl transition-opacity group-hover:opacity-30"
+            style={`background-image: url('${tramaFullVerde.src}'); background-size: 180px auto;`}
+          ></div>
+          <p class="relative z-10 text-xs sm:text-sm md:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
+            Las cachañas (<em>Enicognathus ferrugineus</em>) quienes le dan nombre a nuestro primer juego, se caracterizan por ser aves <strong class="text-[#2b4f25] font-bold">gregarias, bulliciosas y sobre todo curiosas</strong>.
+          </p>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="relative overflow-hidden bg-white/80 backdrop-blur-md p-5 sm:p-6 rounded-3xl border border-[#2b4f25]/25 shadow-lg hover:shadow-xl transition-all flex flex-col justify-center group">
+          <div 
+            class="absolute inset-0 bg-repeat bg-center opacity-20 mix-blend-multiply pointer-events-none rounded-3xl transition-opacity group-hover:opacity-30"
+            style={`background-image: url('${tramaFullVerde.src}'); background-size: 180px auto;`}
+          ></div>
+          <p class="relative z-10 text-xs sm:text-sm md:text-base leading-relaxed font-sans font-medium text-[#1b3519]">
+            Tal como las cachañas, este juego celebra la <strong class="text-[#2b4f25] font-bold">naturaleza gregaria</strong> del ser humano, el asombro compartido y la alegría vivida en cada partida.
           </p>
         </div>
 
