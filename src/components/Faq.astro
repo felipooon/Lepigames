@@ -8,7 +8,7 @@ const contactCards = [
     text: "Escríbenos para consultas rápidas sobre productos, stock o tu número de envío.",
     btnText: "Escribir a WhatsApp",
     btnColor: "bg-[#25d366] hover:bg-[#20ba5a] text-white",
-    url: `https://wa.me/${SITE_CONFIG.whatsAppNumber.replace('+', '')}?text=${encodeURIComponent(SITE_CONFIG.whatsAppMessage)}`
+    url: `https://wa.me/${SITE_CONFIG.whatsAppNumber.replace(/\D/g, '')}?text=${encodeURIComponent(SITE_CONFIG.whatsAppMessage)}`
   },
   {
     icon: "instagram",

@@ -135,7 +135,7 @@ const educationPhotos = [
       </p>
       <div class="pt-1">
         <a
-          href={`https://wa.me/${SITE_CONFIG.whatsAppNumber.replace('+', '')}?text=${encodeURIComponent('Hola Lëpigames! Me interesa llevar Cachañando a mi establecimiento educacional.')}`}
+          href={`https://wa.me/${SITE_CONFIG.whatsAppNumber.replace(/\D/g, '')}?text=${encodeURIComponent('Hola Lëpigames! Me interesa llevar Cachañando a mi establecimiento educacional.')}`}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#2b4f25] hover:bg-[#1b3519] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md transition-all hover:scale-105"

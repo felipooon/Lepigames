@@ -16,6 +16,7 @@ export const SITE_CONFIG = {
   email: "contacto@lepigames.cl",
   mercadoPagoUrl: "https://mpago.la/tu-link-aqui", // URL parametrizable de checkout
   whatsAppNumber: "+56 9 5065 1132", // Parametrizable
+  whatsAppCleanNumber: "56950651132", // Formato numérico para URLs wa.me
   whatsAppMessage: "¡Hola Lëpigames! Quisiera consultar sobre el juego Cachañando o coordinar un despacho.",
   instagramUrl: "https://instagram.com/lepigames",
   instagramHandle: "@lepigames",

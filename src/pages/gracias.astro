@@ -6,7 +6,7 @@ import cachanaSinFondo from '../assets/birds/sin-fondo/cachana.png';
 import { SITE_CONFIG } from '../config/site';
 
 const waMessage = "¡Hola Lëpigames! Acabo de realizar la compra del juego Cachañando. Adjunto mi comprobante para coordinar los datos de despacho.";
-const waUrl = `https://wa.me/${SITE_CONFIG.whatsAppNumber.replace('+', '')}?text=${encodeURIComponent(waMessage)}`;
+const waUrl = `https://wa.me/${SITE_CONFIG.whatsAppNumber.replace(/\D/g, '')}?text=${encodeURIComponent(waMessage)}`;
 ---
 
 <Layout 

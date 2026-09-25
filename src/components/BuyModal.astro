@@ -4,7 +4,7 @@ import cartasImg from "../assets/branding/cartas.png";
 import logoImg from "../assets/branding/logo.png";
 import { SITE_CONFIG } from "../config/site";
 
-const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsAppNumber.replace("+", "")}?text=${encodeURIComponent(SITE_CONFIG.whatsAppMessage)}`;
+const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsAppNumber.replace(/\D/g, "")}?text=${encodeURIComponent(SITE_CONFIG.whatsAppMessage)}`;
 ---
 
 <!-- Global Buy Modal -->
