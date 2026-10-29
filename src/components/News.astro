@@ -1,28 +1,52 @@
 ---
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import newsFestivalCoihuin from '../assets/news/festival-coihuin-news.png';
+import newsCharlasRoc from '../assets/news/charlas-roc-news.jpg';
 import newsChamiza from '../assets/news/chamiza-news.png';
 import newsPudufest from '../assets/news/pudufest-news.png';
-import newsCharlasRoc from '../assets/news/charlas-roc-news.jpg';
 
-const newsItems = [
+interface NewsItem {
+  image: ImageMetadata;
+  title: string;
+  category: string;
+  subtext: string;
+  highlight?: string;
+  linkText: string;
+  url: string;
+}
+
+const newsItems: NewsItem[] = [
+  {
+    image: newsFestivalCoihuin,
+    title: "¡Ya viene volando la 6.ª versión del Festival de Aves de Coihuín y Chamiza!",
+    category: "Próximo Evento • Coihuín y Chamiza",
+    subtext: "Una fiesta comunitaria que celebra el patrimonio alado del humedal marino. En este evento habrá torneo del juego Cachañando el día del evento a las 16:45 hrs.",
+    highlight: "🏆 Torneo Cachañando: Sábado 21 de nov a las 16:45 hrs",
+    linkText: "Leer noticia en ROC",
+    url: "https://www.redobservadores.cl/ya-viene-volando-la-6-a-version-del-festival-de-aves-de-coihuin-y-chamiza/"
+  },
   {
     image: newsCharlasRoc,
     title: "Charlas ROC reúnen a comunidad pajarera de Los Lagos en torno al arte, la ciencia y conservación de las aves",
     category: "Charlas ROC • Los Lagos",
+    subtext: "Encuentro en la Universidad Santo Tomás donde María de los Ángeles Díaz expuso sobre cómo el juego conecta el arte, la ciencia y la divulgación.",
     linkText: "Leer noticia en ROC",
     url: "https://www.redobservadores.cl/charlas-roc-reunen-a-comunidad-pajarera-de-los-lagos-en-torno-al-arte-la-ciencia-y-conservacion-de-las-aves/"
   },
   {
     image: newsChamiza,
     title: "Estudiantes de Escuela Rural La Chamiza aprenden sobre aves nativas a través del juego Cachañando",
-    category: "Noticia Destacada • ROC",
+    category: "Educación • ROC",
+    subtext: "Jornada educativa y de observación donde niñas y niños de la Escuela Rural La Chamiza aprendieron a reconocer y valorar las especies de su territorio.",
     linkText: "Leer noticia en ROC",
     url: "https://www.redobservadores.cl/estudiantes-de-escuela-rural-la-chamiza-aprenden-sobre-aves-nativas-a-traves-del-juego-cachanando/"
   },
   {
     image: newsPudufest,
     title: "Núcleo ROC Los Lagos se suma al Pudúfest 2026 para promover el conocimiento y conservación de las aves en Chiloé",
-    category: "Mención en Eventos • Pudú Fest",
+    category: "Eventos • Pudú Fest",
+    subtext: "Difusión comunitaria en Ancud para concientizar sobre el cuidado de los ecosistemas y las aves del archipiélago.",
     linkText: "Leer noticia en ROC",
     url: "https://www.redobservadores.cl/nucleo-roc-los-lagos-se-suma-al-pudufest-2026-para-promover-el-conocimiento-y-conservacion-de-las-aves-en-chiloe/"
   }
@@ -45,7 +69,7 @@ const newsItems = [
     </div>
 
     <!-- News Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
       {newsItems.map((item) => (
         <a 
           href={item.url}
@@ -71,6 +95,16 @@ const newsItems = [
               <h3 class="font-serif font-bold text-base sm:text-lg text-[#1b3519] leading-snug group-hover:text-[#2b4f25] transition-colors">
                 {item.title}
               </h3>
+              {item.subtext && (
+                <p class="text-xs sm:text-sm text-[#1b3519]/80 mt-2.5 leading-relaxed">
+                  {item.subtext}
+                </p>
+              )}
+              {item.highlight && (
+                <div class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400/20 border border-amber-500/30 text-amber-950 font-bold text-xs">
+                  <span>{item.highlight}</span>
+                </div>
+              )}
             </div>
 
             <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#2b4f25] group-hover:text-emerald-800 transition-colors uppercase tracking-wider">
