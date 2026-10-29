@@ -21,7 +21,9 @@ Consult these guides before working on related tasks:
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
 
-## Git & Execution Guidelines
+## Git & Execution Safety Guidelines
 - Run build, tests, `git status`, `git diff`, `git add`, and `git commit` commands automatically without asking for confirmation.
 - **NEVER** run `git push` without explicitly asking the user for confirmation first.
+- **NEVER** run `sudo`, destructive commands like `rm -rf`, or discard work autonomously (`git reset --hard`, `git clean`).
+
 
