@@ -2,8 +2,16 @@
 import { Image } from 'astro:assets';
 import newsChamiza from '../assets/news/chamiza-news.png';
 import newsPudufest from '../assets/news/pudufest-news.png';
+import newsCharlasRoc from '../assets/news/charlas-roc-news.png';
 
 const newsItems = [
+  {
+    image: newsCharlasRoc,
+    title: "Charlas ROC reúnen a comunidad pajarera de Los Lagos en torno al arte, la ciencia y conservación de las aves",
+    category: "Charlas ROC • Los Lagos",
+    linkText: "Leer noticia en ROC",
+    url: "https://www.redobservadores.cl/charlas-roc-reunen-a-comunidad-pajarera-de-los-lagos-en-torno-al-arte-la-ciencia-y-conservacion-de-las-aves/"
+  },
   {
     image: newsChamiza,
     title: "Estudiantes de Escuela Rural La Chamiza aprenden sobre aves nativas a través del juego Cachañando",
@@ -37,7 +45,7 @@ const newsItems = [
     </div>
 
     <!-- News Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
       {newsItems.map((item) => (
         <a 
           href={item.url}

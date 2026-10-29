@@ -14,17 +14,20 @@ export const SITE_CONFIG = {
   author: "María de los Ángeles",
   location: "Región de Los Lagos, Chile",
   email: "contacto@lepigames.cl",
-  mercadoPagoUrl: "https://mpago.la/tu-link-aqui", // URL parametrizable de checkout
+  webpayUrl: "https://www.webpay.cl/form-pay/431055",
+  mercadoPagoUrl: "https://www.webpay.cl/form-pay/431055", // Mantener por compatibilidad
   whatsAppNumber: "+56 9 5065 1132", // Parametrizable
   whatsAppCleanNumber: "56950651132", // Formato numérico para URLs wa.me
   whatsAppMessage: "¡Hola Lëpigames! Quisiera consultar sobre el juego Cachañando o coordinar un despacho.",
+  whatsAppTransferMessage: "¡Hola Lëpigames! Quisiera comprar el juego Cachañando por transferencia directa a $20.000.",
   instagramUrl: "https://instagram.com/lepigames",
   instagramHandle: "@lepigames",
-  price: "$23.000",
+  price: "$25.000",
+  transferPrice: "$20.000",
   badges: [
     { text: "Hecho con Amor", icon: "heart" },
     { text: "Enviamos a todo Chile", icon: "truck" },
-    { text: "Compra Segura", icon: "shield" }
+    { text: "Compra Segura a través de Transbank", icon: "shield" }
   ]
 };
 
