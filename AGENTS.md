@@ -24,6 +24,7 @@ Consult these guides before working on related tasks:
 ## Git & Execution Safety Guidelines
 - Run build, tests, `git status`, `git diff`, `git add`, and `git commit` commands automatically without asking for confirmation.
 - **NEVER** run `git push` without explicitly asking the user for confirmation first.
-- **NEVER** run `sudo`, destructive commands like `rm -rf`, or discard work autonomously (`git reset --hard`, `git clean`).
+- **NEVER** run `sudo`.
+- Before deleting files or directories (`rm`, `rmdir`) or discarding uncommitted work (`git reset`, `git clean`), ALWAYS ask the user for confirmation first.
 
 
